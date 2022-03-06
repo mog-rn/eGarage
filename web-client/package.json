@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "leaflet": "^1.7.1",
     "next": "12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-leaflet": "^3.2.5",
+    "react-leaflet-google-layer": "^2.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
