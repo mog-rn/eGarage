@@ -1,0 +1,22 @@
+{
+  "name": "egarage-backend",
+  "version": "1.0.0",
+  "description": "This is the official backend setup of eGarage's backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "",
+    "dev": "nodemon server.js"
+  },
+  "author": "Amos Nyaburi",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
