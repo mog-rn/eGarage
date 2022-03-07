@@ -31,7 +31,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Garages from the database
 exports.findAll = (req, res) => {
-  const garage = req.query.garage_name;
+  const garage_name = req.query.garage_name;
   Garage.getAll(garage_name, (err, data) => {
     if (err)
       res.status(500).send({

@@ -45,7 +45,7 @@ Garage.findById = (id, result) => {
 Garage.getAll = (garage_name, result) => {
   let query = "SELECT * FROM garages";
   if (garage_name) {
-    query += `WHERE garage_name LIKE '%{title}%'`;
+    query += `WHERE garage_name LIKE '%{garage_name}%'`;
   }
 
   sql.query(query, (err, res) => {
