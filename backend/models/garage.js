@@ -112,7 +112,7 @@ Garage.remove = (garage_id, result) => {
 };
 
 // Delete all garages
-Garage.deleteAll = (result) => {
+Garage.removeAll = (result) => {
   sql.query("DELETE FROM garages", (err, res) => {
     if (err) {
       console.log("Error: ", err);
