@@ -21,7 +21,9 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 5050;
 
+require("./routes/garage")(app);
+
 // Setting the port to listen for requests
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
+  console.log(`Server is running on port ${PORT}`);
+});
