@@ -2,7 +2,7 @@ const sql = require("./db");
 
 // Garage Constructor
 const Garage = function (garage) {
-  this.garage_name = garage.name;
+  this.garage_name = garage.garage_name;
   this.services_offered = garage.services_offered;
   this.location = garage.location;
   this.phone = garage.phone;
