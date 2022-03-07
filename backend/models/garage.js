@@ -24,8 +24,8 @@ Garage.create = (newGarage, result) => {
 };
 
 // Find a garage by {id}
-Garage.findById = (id, result) => {
-  sql.query(`SELECT * FROM garages WHERE id = ${garage_id}`, (err, res) => {
+Garage.findById = (garage_id, result) => {
+  sql.query(`SELECT * FROM garages WHERE garage_id = ${garage_id}`, (err, res) => {
     if (err) {
       console.log("Error: ", err);
       result(err, null);
@@ -60,9 +60,9 @@ Garage.getAll = (garage_name, result) => {
 };
 
 // update a garage by {id}
-Garage.updateById = (id, garage, result) => {
+Garage.updateById = (garage_id, garage, result) => {
   sql.query(
-    "UPDATE garages SET garage_name = ?, services_offered = ?, location = ?, phone = ?, time_open = ?, time_closed = ? WHERE id = ?",
+    "UPDATE garages SET garage_name = ?, services_offered = ?, location = ?, phone = ?, time_open = ?, time_closed = ? WHERE garage_id = ?",
     [
       garage.garage_name,
       garage.services_offered,

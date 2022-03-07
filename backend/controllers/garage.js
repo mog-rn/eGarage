@@ -95,7 +95,7 @@ exports.delete = (req, res) => {
           message: "Could not delete Garage with id " + req.params.garage_id,
         });
       }
-    } else res.send({ message: `Tutorial was deleted successfully` });
+    } else res.send({ message: `Garage was deleted successfully` });
   });
 };
 
