@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:5050",
+  origin: "http://localhost:3000",
 };
 
 app.use(cors(corsOptions));
@@ -12,7 +12,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Parse requests of Content-Type -> application/x-www-form-urlencoded
-app.use(express.urlencoded({ extend: true }));
+// app.use(express.urlencoded({ extend: true }));
 
 // Simple route
 app.get("/", (req, res) => {
