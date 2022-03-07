@@ -1,9 +1,8 @@
 import Head from "next/head";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="flex align-center">
       <Head>
         <title>eGarage</title>
         <meta
@@ -12,8 +11,8 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      kl
+      <h1>eGarage</h1>
+      
     </div>
   );
 }
