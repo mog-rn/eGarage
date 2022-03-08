@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Garages from "../components/Garages";
 
-export default function Home({ garages }) {
+export default function Home() {
   return (
     <div className="flex align-center">
       <Head>
@@ -11,29 +12,9 @@ export default function Home({ garages }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>eGarage</h1>
-      <div>
-        {
-          garages?.map(garage => {
-            return(
-              <div key={garage.garage_id}>
-                <h2>{garage.garage_name}</h2>
-              </div>
-            )
-          })
-        }
-      </div>
+      
+      <Garages />
+      
     </div>
   );
-}
-
-export async function getSeverSideProps() {
-  const response = await fetch("https://e-garage.herokuapp.com/api/garages");
-  const data = await response.json();
-
-  return {
-    props: {
-      garages: data,
-    },
-  };
 }
