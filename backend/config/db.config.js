@@ -10,5 +10,3 @@ module.exports = {
 //     PASSWORD: "mogaka_dev",
 //     DB: "egarage"
 // }
-
-:
