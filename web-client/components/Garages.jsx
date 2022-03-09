@@ -18,7 +18,7 @@ const Garages = () => {
 
   return (
     <div>
-      Garages
+      <h1 className="font-2xl text-yellow-300">Garages</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
