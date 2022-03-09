@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import UserView from "../components/UserView";
 
 const Dashboard = () => {
   return (
-    <div className='flex align-center justify-center'>Dashboard</div>
-  )
-}
-
-export default Dashboard
+    <div className="">
+      <UserView />
+    </div>
+  );
+};
+export default Dashboard;
