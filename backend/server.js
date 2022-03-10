@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://e-garage.mogakadev.tech",
 };
 
 app.use(cors(corsOptions));
