@@ -2,6 +2,7 @@ import Head from "next/head";
 import Garages from "../components/Garages";
 import Footer from "../components/reusables/Footer";
 import NavBar from "../components/reusables/NavBar";
+import Testimonials from "../components/Testimonials";
 
 export default function Home() {
   return (
@@ -15,8 +16,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <main>
+      <main className="scrollbar">
         <NavBar />
+
+        <Testimonials />
 
         <Footer />
       </main>

@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="absolute bottom-0 w-full mx-auto">
+    <div className="w-full mx-auto">
       
       <div className="flex space-x-16 px-28 mb-5">
         {/* Left */}

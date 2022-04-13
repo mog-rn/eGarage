@@ -2,7 +2,7 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className="font-san flex items-center justify-between h-16 w-full shadow-md p-10 top-2 bg-[#F6FBF2]">
+    <div className="fixed flex items-center justify-between h-16 w-full shadow-md p-10 top-2 bg-[#F6FBF2]">
         {/* logo */}
         <div className='ml-20'>
             <h1 className='text-4xl text-[#118024] font-bold'>MyGarage</h1>
