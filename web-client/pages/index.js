@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Garages from "../components/Garages";
+import Footer from "../components/reusables/Footer";
 import NavBar from "../components/reusables/NavBar";
 
 export default function Home() {
@@ -16,6 +17,8 @@ export default function Home() {
       
       <main>
         <NavBar />
+
+        <Footer />
       </main>
     </div>
   );
