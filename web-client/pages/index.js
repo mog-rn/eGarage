@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Garages from "../components/Garages";
+import Hero from "../components/Hero";
 import Footer from "../components/reusables/Footer";
 import NavBar from "../components/reusables/NavBar";
 import Testimonials from "../components/Testimonials";
@@ -18,6 +19,8 @@ export default function Home() {
       
       <main className="scrollbar">
         <NavBar />
+
+        <Hero />
 
         <Testimonials />
 
