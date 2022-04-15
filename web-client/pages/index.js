@@ -7,7 +7,8 @@ import Testimonials from "../components/Testimonials";
 
 export default function Home() {
   return (
-    <div className="h-screen relative">
+    <div className="h-screen relative scrollbar-thin scrollbar-thumb-green-700 scrollbar-track-green-200 
+            overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
       <Head>
         <title>eGarage</title>
         <meta
