@@ -3,10 +3,10 @@ import { FcGoogle } from "react-icons/fc";
 
 const RegistrationForm = () => {
   return (
-    <div>
+    <div className="space-y-5">
       
         <h1 className="text-4xl mt-5 font-bold">Sign up </h1>
-        <div className="">
+        <div className="mt-3">
           <label for="username">Username</label>
           <div
             className="border-gray-400  rounded-md mt-3 h-12 w-full px-5 flex

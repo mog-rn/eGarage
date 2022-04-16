@@ -8,7 +8,7 @@ import Navbar from "../components/reusables/NavBar";
 const Register = () => {
   return (
     <div className="h-screen">      {" "}
-      <div className="pb-1"><Navbar /></div>
+      {/* <div className="pb-1"><Navbar /></div> */}
       <div className="bg-[#EAE8DF] flex h-screen overflow-hidden px-12 scrollbar-hide py-16 space-y-5">
         <Head>
           <title>Create an Account</title>
