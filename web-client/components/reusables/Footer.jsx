@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         {/* Right */}
         <div className="">
-            <div className="container rounded-bl-2xl bg-[#F6FBF2] p-6 space-y-2 flex flex-col">
+            <div className="container rounded-bl-[70px] bg-[#F6FBF2] p-6 space-y-2 flex flex-col">
                 <h1 className="pb-2">Find us</h1>
                 {/* Email */}
                 <Link href="/">mygarage@gmail.com</Link>

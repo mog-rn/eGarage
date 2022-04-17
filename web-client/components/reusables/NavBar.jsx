@@ -23,7 +23,7 @@ const NavBar = () => {
         <button className="text-[#118024] text-lg w-auto h-[45px]">
           <Link href="/login">Sign in</Link>
         </button>
-        <button className="bg-[#118024] text-white text-lg p-4 w-auto rounded-md">
+        <button className="bg-[#118024] text-white text-lg px-6 py-3 w-auto rounded-md">
           <Link href="/register">Register</Link>
         </button>
       </div>

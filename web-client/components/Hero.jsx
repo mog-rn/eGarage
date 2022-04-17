@@ -20,7 +20,7 @@ const Hero = () => {
           purus sit amet luctus venenatis, lectus magna lectus.
         </p>
         <div
-          className="flex items-center px-5 justify-between h-20 border-[#118024] border-4 
+          className="flex items-center px-3 justify-between h-20 border-[#118024] border-4 
                 w-4/5 space-x-8 rounded-lg mx-auto"
         >
           <HiOutlineSearch className="h-12 w-12 text-[#118024]" />
@@ -39,7 +39,7 @@ const Hero = () => {
               <option value="">Enter Location</option>
             </select>
           </div>
-          <button className="bg-[#118024] rounded-lg text-white p-5">
+          <button className="bg-[#118024] rounded-lg text-white px-6 py-3">
             Search
           </button>
         </div>
