@@ -7,10 +7,10 @@ const GarageCard = () => {
     <div className="p-10 space-y-3">
       <h1 className="text-4xl font-semibold">Popular garages near you</h1>
       <p>Lorem ipsum et luctus venenat</p>
-      <div class="max-w-sm space-y-8 rounded-lg border-black overflow-hidden shadow-lg p-10 bg-[#F6FBF2] py-12">
+      <div className="max-w-sm space-y-8 rounded-lg border-black overflow-hidden shadow-lg p-10 bg-[#F6FBF2] py-12">
         <div className="flex items-center space-x-2">
           <img
-            class="w-16 h-16 rounded-full"
+            className="w-16 h-16 rounded-full"
             src="/images/garage.jpeg"
             layout="fill"
             alt="Mountain"

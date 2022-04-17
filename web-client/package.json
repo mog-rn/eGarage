@@ -19,6 +19,7 @@
     "react-leaflet-google-layer": "^2.0.5",
     "react-loader-spinner": "^6.0.0-0",
     "react-responsive-carousel": "^3.2.23",
+    "react-star-ratings": "^2.3.0",
     "swr": "^1.2.2",
     "tailwind-scrollbar-hide": "^1.1.7"
   },

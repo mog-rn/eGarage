@@ -7,7 +7,7 @@ const RegistrationForm = () => {
       
         <h1 className="text-4xl mt-5 font-bold">Sign up </h1>
         <div className="mt-3">
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <div
             className="border-gray-400  rounded-md mt-3 h-12 w-full px-5 flex
              outline-none border-2 focus:border-[#118024]"
@@ -22,7 +22,7 @@ const RegistrationForm = () => {
           </div>
         </div>
         <div className="">
-          <label for="username">Email Address</label>
+          <label htmlFor="username">Email Address</label>
           <div
             className="border-gray-400  rounded-md mt-3 h-12 w-full px-5 flex
              outline-none border-2 focus:border-[#118024]"
@@ -37,7 +37,7 @@ const RegistrationForm = () => {
           </div>
         </div>
         <div className="">
-          <label for="password">password</label>
+          <label htmlFor="password">password</label>
           <div
             className="border-gray-400  rounded-md mt-3 h-12 w-full px-5 flex
              outline-none border-2 focus:border-[#118024]"
@@ -58,10 +58,10 @@ const RegistrationForm = () => {
             <button className="bg-[#118024] text-white rounded-xl border-[#118024] p-5 w-full">
               Sign Up
             </button>
-            <div class="relative flex py-5 items-center">
-              <div class="flex-grow border-t border-gray-400"></div>
-              <span class="flex-shrink mx-4 text-lg font-bold">or</span>
-              <div class="flex-grow border-t border-gray-400"></div>
+            <div className="relative flex py-5 items-center">
+              <div className="flex-grow border-t border-gray-400"></div>
+              <span className="flex-shrink mx-4 text-lg font-bold">or</span>
+              <div className="flex-grow border-t border-gray-400"></div>
             </div>
 
             <button className="bg-white border-gray-400 border-4 p-1 rounded-xl flex flex-row items-center px-3 justify-center w-full">
