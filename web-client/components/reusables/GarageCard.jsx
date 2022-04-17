@@ -4,7 +4,7 @@ import { GrLocation } from "react-icons/gr";
 
 const GarageCard = () => {
   return (
-    <div className="p-10 space-y-3">
+    <div className="p-16 mt-10 space-y-3">
       <h1 className="text-4xl font-semibold">Popular garages near you</h1>
       <p>Lorem ipsum et luctus venenat</p>
       <div className="max-w-sm space-y-8 rounded-lg border-black overflow-hidden shadow-lg p-10 bg-[#F6FBF2] py-12">
