@@ -2,6 +2,7 @@ import Head from "next/head";
 import Garages from "../components/Garages";
 import Hero from "../components/Hero";
 import Footer from "../components/reusables/Footer";
+import GarageCard from "../components/reusables/GarageCard";
 import NavBar from "../components/reusables/NavBar";
 import Testimonials from "../components/Testimonials";
 
@@ -22,6 +23,8 @@ export default function Home() {
         <NavBar />
 
         <Hero />
+        
+        <GarageCard />
 
         <Testimonials />
 
