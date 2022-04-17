@@ -3,10 +3,10 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <div className="fixed z-50  flex items-center justify-between h-16 w-full shadow-md p-10 bg-[#F6FBF2]">
+    <div className="fixed z-50  flex items-center justify-between p-8 h-6 w-full shadow-md  bg-[#F6FBF2]">
       {/* logo */}
       <div className="ml-20">
-        <h1 className="text-4xl text-[#118024] font-bold">
+        <h1 className="text-3xl text-[#118024] font-bold">
             <Link href="/">MyGarage</Link>
         </h1>
       </div>
