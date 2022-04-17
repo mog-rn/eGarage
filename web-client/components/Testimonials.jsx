@@ -5,35 +5,44 @@ import Image from "next/image";
 
 const Testimonials = () => {
   return (
-    <div className="h-auto bg-[#F6FBF4] p-10 mb-10">
+    <div className="p-10 space-x-4 space-y-3">
       <h1 className="text-[55px] font-bold">What users say</h1>
       <p>Lorem ipsum et luctus venenat</p>
-      <Carousel className="">
-        <div className="h-96">
-          <Image
-            src="/images/garage.jpeg"
-            width={150}
-            height={150}
-            className="rounded-full w-20"
-            alt=""
-          />
-          <div>
-            <blockquote>hello</blockquote>
-          </div>
+      <div className="h-auto container bg-[#F6FBF4] mx-auto p-10 mb-10">
+        <div className="rounded-lg px-20 mx-auto">
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop
+            className="rounded-lg"
+          >
+            <div className="h-[450px] rounded-lg">
+              <Image
+                src="/images/garage.jpeg"
+                width={150}
+                height={150}
+                className="rounded-full w-20"
+                alt=""
+              />
+              <div>
+                <blockquote>hello</blockquote>
+              </div>
+            </div>
+            <div>
+              <img src="" alt="" />
+              <p>Image 1</p>
+            </div>
+            <div>
+              <img src="" alt="" />
+              <p>Image 1</p>
+            </div>
+            <div>
+              <img src="" alt="" />
+              <p>Image 1</p>
+            </div>
+          </Carousel>
         </div>
-        <div>
-          <img src="" alt="" />
-          <p>Image 1</p>
-        </div>
-        <div>
-          <img src="" alt="" />
-          <p>Image 1</p>
-        </div>
-        <div>
-          <img src="" alt="" />
-          <p>Image 1</p>
-        </div>
-      </Carousel>
+      </div>
     </div>
   );
 };
