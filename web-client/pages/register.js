@@ -41,7 +41,7 @@ const Register = () => {
             </div>
           </div>
           {/* left */}
-          <div className="px-12 flex-grow w-1/2 overflow-y-scroll space-y-8 py-2">
+          <div className="px-12 flex-grow w-1/2 overflow-y-scroll scrollbar-hide space-y-8 py-2">
             <RegistrationForm />
           </div>
         </div>
