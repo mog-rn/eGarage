@@ -33,7 +33,7 @@ const Login = () => {
                 Create an account to get started with MyGarage. You can also get to have a personalized user experience while using the application.
               </p>
               <div className="bottom-5 absolute">
-                <p>Don't have an account?</p>
+                <p>Dont have an account?</p>
                 <button className="decoration: underline underline-offset-2">
                   <Link href="/register">Sign up</Link>
                 </button>
