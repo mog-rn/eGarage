@@ -1,6 +1,8 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
+import Router from "next/router";
 
 const RegistrationForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -9,8 +11,30 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("");
 
-  const registerUser = (event) => {
-    event.preventDefault();
+  const registerUser = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      userType: userType,
+    };
+
+    await axios.post("/api/users/register", data);
+    signIn("credentials", {
+      email,
+      password,
+      callbackUrl: `${window.location.origin}/dashboard`,
+      redirect: false,
+    })
+      .then((result) => {
+        Router.push(result.url);
+      })
+      .catch((err) => {
+        alert("Failed to register user: " + err.toString());
+      });
   };
 
   return (
@@ -89,29 +113,29 @@ const RegistrationForm = () => {
             <span>Show password</span>
           </div>
           <div className="pb-4 mt-3 space-y-3">
-          <label htmlFor="usertype">What type of user are you?</label>
-          <div
-            className=" h-5 w-auto items-center justify-between flex-grow px-4 flex focus:border-[#118024]"
-          >
-            <input
-              type="radio"
-              name="user_type"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-              placeholder="Enter a unique password"
-              className="w-full h-full focus:border-green-400 outline-none"
-              required
-            /> Automobile user
-            <input
-              type="radio"
-              name="user_type"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-              placeholder="Enter a unique password"
-              className="w-full h-full focus:border-green-400 outline-none"
-              required
-            /> Garage Owner
-          </div>
+            <label htmlFor="usertype">What type of user are you?</label>
+            <div className=" h-5 w-auto items-center justify-between flex-grow px-4 flex focus:border-[#118024]">
+              <input
+                type="radio"
+                name="user_type"
+                value={userType}
+                onChange={(e) => setUserType(e.target.value)}
+                placeholder="Enter a unique password"
+                className="w-full h-full focus:border-green-400 outline-none"
+                required
+              />{" "}
+              Automobile user
+              <input
+                type="radio"
+                name="user_type"
+                value={userType}
+                onChange={(e) => setUserType(e.target.value)}
+                placeholder="Enter a unique password"
+                className="w-full h-full focus:border-green-400 outline-none"
+                required
+              />{" "}
+              Garage Owner
+            </div>
           </div>
           <div className="mt-5 space-y-3 pb-3">
             <button
