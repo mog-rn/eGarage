@@ -1,13 +1,32 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
 
+  const router = useRouter();
+
   const handleLogin = (e) => {
     e.preventDefault();
+    e.stopPropagation();
+
+    signIn("credentials", {
+      email, password, callbackUrl: `${window.location.origin}/dashboard`, redirect: false,
+    }).then((result) => {
+      if (result.error !== null) {
+        if (result.status === 401) {
+          setLoginError("Your email/password combination is incorrect. Please try again.");
+        } else {
+          setLoginError(result.error)
+        }
+      } else {
+        router.push(result.url);
+      }
+    })
   };
 
   return (

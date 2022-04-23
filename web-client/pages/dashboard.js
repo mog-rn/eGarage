@@ -4,6 +4,7 @@ import UserView from "../components/UserView";
 const Dashboard = () => {
   return (
     <div className="">
+      Dashboard
     </div>
   );
 };

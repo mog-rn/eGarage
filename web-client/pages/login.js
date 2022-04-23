@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "../components/forms/LoginForm";
-import Navbar from "../components/reusables/NavBar";
+
 
 const Login = () => {
   return (

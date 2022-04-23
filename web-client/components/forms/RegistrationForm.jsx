@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Router from "next/router";
+import axios from "axios"
 
 const RegistrationForm = () => {
   const [firstName, setFirstName] = useState("");

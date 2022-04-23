@@ -1,9 +1,9 @@
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+function MyApp({ Component, pageProps }) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider options={{ clientMaxAge: 0 }} session={pageProps.session}>
       <Component {...pageProps} />
     </SessionProvider>
   );
