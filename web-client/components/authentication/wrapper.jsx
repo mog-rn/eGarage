@@ -9,7 +9,7 @@ const Wrapper = (props) => {
 
   if (
     (session !== null && session?.status === "authenticated") ||
-    router.pathname === "/" ||
+    router.pathname === "/login" ||
     router.pathname === "/register"
   ) {
     return props.children;
