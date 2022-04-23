@@ -23,13 +23,12 @@ const NavBar = () => {
       <div className="space-x-7 ">
         <button
           className="text-[#118024] text-lg w-auto h-[45px]"
-          onClick={() => signIn()}
         >
-          Sign in
+          <Link href="/login">Sign in</Link>
         </button>
         <button className="bg-[#118024] text-white text-lg px-6 py-3 w-auto rounded-md"
-        onClick={() => newUser}>
-          Register
+        >
+          <Link href="/register">Register</Link>
         </button>
       </div>
     </div>
