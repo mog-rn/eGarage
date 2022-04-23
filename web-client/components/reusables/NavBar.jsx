@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import {useSession, signIn, } from "next-auth/react"
 
 const NavBar = () => {
   return (
@@ -7,7 +8,7 @@ const NavBar = () => {
       {/* logo */}
       <div className="ml-20">
         <h1 className="text-3xl text-[#118024] font-bold">
-            <Link href="/">MyGarage</Link>
+          <Link href="/">MyGarage</Link>
         </h1>
       </div>
       {/* Links */}
@@ -20,11 +21,15 @@ const NavBar = () => {
       </div>
       {/* Buttons */}
       <div className="space-x-7 ">
-        <button className="text-[#118024] text-lg w-auto h-[45px]">
-          <Link href="/login">Sign in</Link>
+        <button
+          className="text-[#118024] text-lg w-auto h-[45px]"
+          onClick={() => signIn()}
+        >
+          Sign in
         </button>
-        <button className="bg-[#118024] text-white text-lg px-6 py-3 w-auto rounded-md">
-          <Link href="/register">Register</Link>
+        <button className="bg-[#118024] text-white text-lg px-6 py-3 w-auto rounded-md"
+        onClick={() => newUser}>
+          Register
         </button>
       </div>
     </div>
