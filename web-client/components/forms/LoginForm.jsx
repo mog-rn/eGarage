@@ -11,11 +11,10 @@ const LoginForm = () => {
 
   const router = useRouter();
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    await axios.get("/api/login");
     signIn("credentials", {
       email, password, callbackUrl: `${window.location.origin}/dashboard`, redirect: false,
     }).then((result) => {
