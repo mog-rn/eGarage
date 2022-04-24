@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
+import axios from "axios";
 
 const LoginForm = () => {
   const [user, setUser] = useState("");
@@ -10,10 +11,11 @@ const LoginForm = () => {
 
   const router = useRouter();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     e.stopPropagation();
 
+    await axios.get("/api/login");
     signIn("credentials", {
       email, password, callbackUrl: `${window.location.origin}/dashboard`, redirect: false,
     }).then((result) => {

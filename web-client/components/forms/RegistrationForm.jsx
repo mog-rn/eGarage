@@ -10,7 +10,11 @@ const RegistrationForm = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("");
+  const [userType, setUserType] = useState("Automobile User");
+
+  const handleChange = (e) => {
+    setUserType(e.target.value);
+  }
 
   const registerUser = async (e) => {
     e.preventDefault();
@@ -119,8 +123,9 @@ const RegistrationForm = () => {
               <input
                 type="radio"
                 name="user_type"
-                value={userType}
-                onChange={(e) => setUserType(e.target.value)}
+                checked={userType === "Automobile User"}
+                value="Automobile User"
+                onChange={handleChange}
                 placeholder="Enter a unique password"
                 className="w-full h-full focus:border-green-400 outline-none"
                 required
@@ -129,8 +134,9 @@ const RegistrationForm = () => {
               <input
                 type="radio"
                 name="user_type"
-                value={userType}
-                onChange={(e) => setUserType(e.target.value)}
+                checked={userType === "Garage Owner"}
+                value="Garage Owner"
+                onChange={handleChange}
                 placeholder="Enter a unique password"
                 className="w-full h-full focus:border-green-400 outline-none"
                 required
