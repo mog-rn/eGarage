@@ -18,7 +18,7 @@ export default async (req, res) => {
         },
       });
 
-      return res.status(200).end();
+      return res.status(200).json();
     } catch (err) {
         return res.status(503).json({err: err.toString()});
     }

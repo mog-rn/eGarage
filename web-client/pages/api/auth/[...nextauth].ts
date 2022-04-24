@@ -73,7 +73,7 @@ const configuration = {
   ],
 
   callbacks: {
-    async signIn(user, account, profile) {
+    async signIn(user) {
       try {
         //  The user object is wrapped in another user object so extra it
         user = user.user;
@@ -114,14 +114,13 @@ const configuration = {
       }
     },
 
-    async session(session, token) {
+    async session(session, token, user) {
       if (userAccount !== null) {
-        // session user = userAccount
+        //session.user = userAccount;
         session.user = {
           userId: userAccount.userId,
           name: `${userAccount.firstName} ${userAccount.lastName}`,
           email: userAccount.email,
-          userType: userAccount.userType,
         };
       } else if (
         typeof token.user !== typeof undefined &&
@@ -136,7 +135,7 @@ const configuration = {
       return session;
     },
 
-    async jwt(token, user, account, profile, isNewUser) {
+    async jwt(token, user) {
       console.log("JWT callback. Got User: ", user);
       if (typeof user !== typeof undefined) {
         token.user = user;
