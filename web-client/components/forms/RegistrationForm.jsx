@@ -27,7 +27,7 @@ const RegistrationForm = () => {
       userType: userType,
     };
 
-    await axios.post("/api/register", data);
+    await axios.post("/api/user/register", data);
     signIn("credentials", {
       email,
       password,

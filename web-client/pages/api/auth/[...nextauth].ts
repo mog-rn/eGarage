@@ -34,7 +34,7 @@ const configuration = {
       id: "credentials",
       name: "credentials",
       credentials: {},
-      async authorize(credentials: any, req) {
+      async authorize(credentials: any) {
         try {
           const user = await prisma.users.findFirst({
             where: {
@@ -73,7 +73,7 @@ const configuration = {
   ],
 
   callbacks: {
-    async signIn(user) {
+    async signIn(user, account, profile) {
       try {
         //  The user object is wrapped in another user object so extra it
         user = user.user;
@@ -114,7 +114,7 @@ const configuration = {
       }
     },
 
-    async session(session, token, user) {
+    async session(session, token) {
       if (userAccount !== null) {
         //session.user = userAccount;
         session.user = {
@@ -135,7 +135,7 @@ const configuration = {
       return session;
     },
 
-    async jwt(token, user) {
+    async jwt(token, user, account, profile, isNewUser) {
       console.log("JWT callback. Got User: ", user);
       if (typeof user !== typeof undefined) {
         token.user = user;
