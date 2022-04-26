@@ -5,9 +5,9 @@ import Wrapper from "../components/authentication/wrapper";
 function MyApp({ Component, pageProps }) {
   return (
     <SessionProvider options={{ clientMaxAge: 0 }} session={pageProps.session}>
-      <Wrapper>
+      {/* <Wrapper> */}
         <Component {...pageProps} />
-      </Wrapper>
+      {/* </Wrapper> */}
     </SessionProvider>
   );
 }

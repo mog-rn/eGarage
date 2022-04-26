@@ -16,18 +16,23 @@ const LoginForm = () => {
     e.stopPropagation();
 
     signIn("credentials", {
-      email, password, callbackUrl: `${window.location.origin}/dashboard`, redirect: false,
+      email,
+      password,
+      callbackUrl: `${window.location.origin}/dashboard`,
+      redirect: false,
     }).then((result) => {
       if (result.error !== null) {
         if (result.status === 401) {
-          setLoginError("Your email/password combination is incorrect. Please try again.");
+          setLoginError(
+            "Your email/password combination is incorrect. Please try again."
+          );
         } else {
-          setLoginError(result.error)
+          setLoginError(result.error);
         }
       } else {
         router.push(result.url);
       }
-    })
+    });
   };
 
   return (
