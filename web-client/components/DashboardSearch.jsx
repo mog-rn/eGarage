@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 const DashboardSearch = () => {
   return (
     <div className="relative p-10">
-      <div className="flex h-12 w-auto items-center border-gray-400 bg-white rounded-lg space-x-3">
+      <div className="flex h-12 w-96 items-center border-gray-400 bg-white rounded-lg space-x-3">
         <AiOutlineSearch className="h-8 w-8 pl-2" />
         <input
           type="text"
