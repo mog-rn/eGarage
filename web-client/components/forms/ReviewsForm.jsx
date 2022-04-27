@@ -9,8 +9,8 @@ const ReviewsForm = () => {
 
   return (
     <div className="space-y-10">
-      <h1 className="text-4xl">Make a review</h1>
-      <form action="" className="space-y-5">
+              <h1 className='font-bold items-center justify-center pb-10 text-3xl flex text-center'>Give a review</h1>
+      <form action="" className="space-y-5 justify-center">
         <div className="flex flex-col space-y-4">
           <label htmlFor="">Garage you are making a review for</label>
           <select name="garages" id="" className="w-[400px]">
