@@ -7,9 +7,10 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { FcFaq } from "react-icons/fc";
 import { FiLogOut } from "react-icons/fi";
+import { signOut } from "next-auth/react";
 
 const SideBar = () => {
-    const [currentLink, setCurrentLink] = useState(1)
+  const [currentLink, setCurrentLink] = useState(1);
 
   return (
     <div className="">
@@ -33,30 +34,38 @@ const SideBar = () => {
           <ul className="space-y-5">
             <li className="flex items-center space-x-2 text-xl">
               <GiSpeedometer className="" />
-              <Link href="/" className={currentLink === 1 ? "active" : "none"} onClick={() => setCurrentLink(1)}>Dashboard</Link>
+              <Link
+                href="/dashboard"
+                className={currentLink === 1 ? "active" : "none"}
+                onClick={() => setCurrentLink(1)}
+              >
+                Dashboard
+              </Link>
             </li>
             <li className="flex items-center space-x-2 text-xl">
               <AiOutlineSearch className="" />
-              <Link href="/">Search</Link>
+              <Link href="/search">Search</Link>
             </li>
             <li className="flex items-center space-x-2 text-xl">
               <MdReviews className="" />
-              <Link href="/">Make a Review</Link>
+              <Link href="/reviews">Make a Review</Link>
             </li>
             <li className="flex items-center space-x-2 text-xl">
               <FcFaq className="" />
-              <Link href="/">FAQs</Link>
+              <Link href="/faq">FAQs</Link>
             </li>
             <li className="flex items-center space-x-2 text-xl">
               <BiUserCircle className="" />
-              <Link href="/">Account</Link>
+              <Link href="/user[:id]">Account</Link>
             </li>
           </ul>
         </div>
         <div className="absolute bottom-10">
           <button className="flex items-center space-x-2">
             <FiLogOut className="" />
-            <Link href="/">Logout</Link>
+            <Link href="/" onClick={() => signOut()}>
+              Logout
+            </Link>
           </button>
         </div>
       </div>
