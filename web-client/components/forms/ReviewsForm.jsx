@@ -1,6 +1,12 @@
 import React from "react";
 
 const ReviewsForm = () => {
+  const [ratings, setRatings] = React.useState(1);
+
+  const handleChange = (e) => {
+    setRatings(e.target.value);
+  };
+
   return (
     <div className="space-y-10">
       <h1 className="text-4xl">Make a review</h1>
@@ -14,15 +20,60 @@ const ReviewsForm = () => {
         <div>
           <p>How can you rate it?</p>
           <div className="space-x-5">
-            <input type="radio" name="" id="" /> 1
-            <input type="radio" name="" id="" /> 2
-            <input type="radio" name="" id="" /> 3
-            <input type="radio" name="" id="" /> 4
-            <input type="radio" name="" id="" /> 5
+            <input
+              type="radio"
+              name=""
+              value={1}
+              checked={ratings === "1"}
+              onChange={handleChange}
+              id=""
+            />{" "}
+            1
+            <input
+              type="radio"
+              name=""
+              id=""
+              value={2}
+              checked={ratings === "2"}
+              onChange={handleChange}
+            />{" "}
+            2
+            <input
+              type="radio"
+              name=""
+              id=""
+              value={3}
+              checked={ratings === "3"}
+              onChange={handleChange}
+            />{" "}
+            3
+            <input
+              type="radio"
+              name=""
+              id=""
+              value={4}
+              checked={ratings === "4"}
+              onChange={handleChange}
+            />{" "}
+            4
+            <input
+              type="radio"
+              name=""
+              id=""
+              value={5}
+              checked={ratings === "5"}
+              onChange={handleChange}
+            />{" "}
+            5
           </div>
         </div>
         <div>
-            <button type="submit" className="bg-[#118024] text-white p-5 rounded-md">make a review</button>
+          <button
+            type="submit"
+            className="bg-[#118024] text-white p-5 rounded-md"
+          >
+            make a review
+          </button>
         </div>
       </form>
     </div>
