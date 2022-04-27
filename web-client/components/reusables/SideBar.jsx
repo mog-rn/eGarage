@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { GiSpeedometer } from "react-icons/gi";
@@ -9,6 +9,8 @@ import { FcFaq } from "react-icons/fc";
 import { FiLogOut } from "react-icons/fi";
 
 const SideBar = () => {
+    const [currentLink, setCurrentLink] = useState(1)
+
   return (
     <div className="">
       <div className="sidebar p-10 w-[45vh] bg-white h-screen flex flex-col">
@@ -31,7 +33,7 @@ const SideBar = () => {
           <ul className="space-y-5">
             <li className="flex items-center space-x-2 text-xl">
               <GiSpeedometer className="" />
-              <Link href="/">Dashboard</Link>
+              <Link href="/" className={currentLink === 1 ? "active" : "none"} onClick={() => setCurrentLink(1)}>Dashboard</Link>
             </li>
             <li className="flex items-center space-x-2 text-xl">
               <AiOutlineSearch className="" />
