@@ -13,14 +13,14 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Enter garage name"
-        className="w-1/2 outline-none placeholder:text-white bg-transparent text-white"
+        className="w-1/2 outline-none placeholder:text-black bg-transparent text-black"
       />
       <div className="flex w-full flex-grow hover:cursor-pointer">
         <HiOutlineLocationMarker className="text-[#118024] h-8 w-8 ml-5" />
         <select
           name="locations"
           id="locations"
-          className="bg-transparent text-white space-x-2"
+          className="bg-transparent text-black space-x-2"
         >
           <option value="">Enter Location</option>
         </select>
