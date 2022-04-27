@@ -10,11 +10,14 @@ const Search = () => {
   }
 
   return (
-    <Wrapper apiKey="AIzaSyCdgF7s5lHdKV3ogJHPko3KR51YqhUHnnE" render={render}>
-        <MapsComponent center={center} zoom={zoom}>
-          <Marker position={position} />
-        </MapsComponent>
-    </Wrapper>
+    <>
+      
+    </>
+    // <Wrapper apiKey="AIzaSyCdgF7s5lHdKV3ogJHPko3KR51YqhUHnnE" render={render}>
+    //     <MapsComponent center={center} zoom={zoom}>
+    //       <Marker position={position} />
+    //     </MapsComponent>
+    // </Wrapper>
   )
 }
 
