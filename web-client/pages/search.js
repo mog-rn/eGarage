@@ -1,7 +1,7 @@
 import { Status, Wrapper } from '@googlemaps/react-wrapper';
 import React from 'react'
-import MapsComponent from '../components/maps/index'
-import Marker from '../components/maps/Marker';
+// import MapsComponent from '../components/maps/index'
+// import Marker from '../components/maps/Marker';
 import SideBar from "../components/reusables/SideBar";
 import SearchBar from "../components/reusables/Search";
 
