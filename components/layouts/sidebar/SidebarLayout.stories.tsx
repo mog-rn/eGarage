@@ -17,6 +17,6 @@ const Template: ComponentStory<typeof SidebarLayout> = (args) => (
 export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
-// Base.args = {
-//   ...mockSidebarLayoutProps.base,
-// } as SidebarLayout;
+Base.args = {
+  ...mockSidebarLayoutProps.base,
+} as SidebarLayout;
