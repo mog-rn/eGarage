@@ -8,7 +8,7 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({
   children,
-  justify = 'items-center',
+  justify = 'items-start',
   ...divProps
 }) => {
   return (
