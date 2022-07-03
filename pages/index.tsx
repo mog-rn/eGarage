@@ -12,9 +12,11 @@ const Home: NextPageWithLayout = () => {
         <title>eGarage | Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div>
       <Hero />
       <GarageCard />
       <TestimonialsCard />
+      </div>
     </div>
   );
 };

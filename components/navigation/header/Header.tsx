@@ -6,8 +6,8 @@ export interface IHeader {}
 const Header: React.FC<IHeader> = () => {
   return (
     <div
-      className="h-12 w-full flex items-center px-5 shadow-md
-        md:justify-around justify-between md:px-20 mx-auto"
+      className="h-12 w-full bg-white flex items-center px-5 shadow-md
+        md:justify-around justify-between md:px-20 mx-auto sticky top-0 z-50"
     >
       <div>
         {/* Logo */}
