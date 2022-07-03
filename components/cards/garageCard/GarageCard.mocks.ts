@@ -1,9 +1,9 @@
-import { IBaseTemplate } from './BaseTemplate';
+import { IGarageCard } from './GarageCard';
 
-const base: IBaseTemplate = {
-  sampleTextProp: 'Hello world!',
+const base: IGarageCard = {
+  sampleTextProp: '{{component}}',
 };
 
-export const mockBaseTemplateProps = {
+export const mockGarageCardProps = {
   base,
 };

@@ -1,11 +1,11 @@
 import styles from './Hero.module.css';
 
 export interface IHero {
-  sampleTextProp: string;
+  
 }
 
-const Hero: React.FC<IHero> = ({ sampleTextProp }) => {
-  return <div className={styles.container}>{sampleTextProp}</div>;
+const Hero: React.FC<IHero> = () => {
+  return <div className={styles.container}>Hero Section</div>;
 };
 
 export default Hero;

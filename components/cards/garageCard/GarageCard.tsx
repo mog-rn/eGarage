@@ -1,11 +1,11 @@
-import styles from './BaseTemplate.module.css';
+import styles from './GarageCard.module.css';
 
-export interface IBaseTemplate {
-  sampleTextProp: string;
+export interface IGarageCard {
+  
 }
 
-const BaseTemplate: React.FC<IBaseTemplate> = ({ sampleTextProp }) => {
-  return <div className={styles.container}>{sampleTextProp}</div>;
+const GarageCard: React.FC<IGarageCard> = () => {
+  return <div className={styles.container}>Garage card</div>;
 };
 
-export default BaseTemplate;
+export default GarageCard;
