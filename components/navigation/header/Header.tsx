@@ -4,7 +4,7 @@ export interface IHeader {
   
 }
 
-const Header: React.FC<IHeader> = ({ }) => {
+const Header: React.FC<IHeader> = () => {
   return <div className={styles.container}>Header
   </div>;
 };

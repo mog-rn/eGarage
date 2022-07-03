@@ -1,4 +1,3 @@
-import styles from './TestimonialsCard.module.css';
 
 export interface ITestimonialsCard {
   
