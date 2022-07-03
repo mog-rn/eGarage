@@ -1,9 +1,9 @@
-import { IBaseTemplate } from './BaseTemplate';
+import { IHero } from './Hero';
 
-const base: IBaseTemplate = {
-  sampleTextProp: 'Hello world!',
+const base: IHero = {
+  sampleTextProp: 'Hero Section',
 };
 
-export const mockBaseTemplateProps = {
+export const mockHeroProps = {
   base,
 };

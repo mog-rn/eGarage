@@ -1,11 +1,11 @@
-import styles from './BaseTemplate.module.css';
+import styles from './Hero.module.css';
 
-export interface IBaseTemplate {
+export interface IHero {
   sampleTextProp: string;
 }
 
-const BaseTemplate: React.FC<IBaseTemplate> = ({ sampleTextProp }) => {
+const Hero: React.FC<IHero> = ({ sampleTextProp }) => {
   return <div className={styles.container}>{sampleTextProp}</div>;
 };
 
-export default BaseTemplate;
+export default Hero;
