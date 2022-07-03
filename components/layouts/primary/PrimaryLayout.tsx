@@ -1,16 +1,18 @@
 import Head from "next/head";
 
-export interface IPrimaryLayout{
-    children: React.ReactNode;
+export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
+    justify?: 'items-center' | 'items-start'
 }
 
-const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
+const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children, justify = 'items-center', ...divProps }) => {
     return (
         <>
             <Head>
-                <title>Primary Layout Example</title>
+                <title>eGarage</title>
             </Head>
+            <div className={`min-h-screen flex flex-col ${justify}`} {...divProps}>
             <main className="">{children}</main>
+            </div>
         </>
     )
 }

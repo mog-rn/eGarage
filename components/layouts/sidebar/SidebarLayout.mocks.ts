@@ -4,6 +4,6 @@ const base: ISidebarLayout = {
   
 };
 
-export const mockBaseTemplateProps = {
+export const mockSidebarLayoutProps = {
   base,
 };
