@@ -19,4 +19,4 @@ export const Base = Template.bind({});
 
 Base.args = {
   ...mockSidebarLayoutProps.base,
-} as SidebarLayout;
+} as ISidebarLayout;
