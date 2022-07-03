@@ -1,8 +1,6 @@
 import { ITestimonialsCard } from './TestimonialsCard';
 
-const base: ITestimonialsCard = {
-  
-};
+const base: ITestimonialsCard = {};
 
 export const mockTestimonialsCardProps = {
   base,

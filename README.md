@@ -40,10 +40,10 @@ yarn test
 
 👤 **Amos Nyaburi**
 
-* Website: mogaka-dev.tech
-* Twitter: [@m\_ogakadev](https://twitter.com/m\_ogakadev)
-* Github: [@mogakamo](https://github.com/mogakamo)
-* LinkedIn: [@amos-nyaburi](https://linkedin.com/in/amos-nyaburi)
+- Website: mogaka-dev.tech
+- Twitter: [@m_ogakadev](https://twitter.com/m_ogakadev)
+- Github: [@mogakamo](https://github.com/mogakamo)
+- LinkedIn: [@amos-nyaburi](https://linkedin.com/in/amos-nyaburi)
 
 ## Show your support
 
@@ -53,5 +53,6 @@ Give a ⭐️ if this project helped you!
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

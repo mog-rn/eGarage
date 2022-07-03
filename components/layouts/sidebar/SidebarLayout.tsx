@@ -7,7 +7,7 @@ export interface ISidebarLayout {
 
 const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
   return (
-    <div className='h-screen flex'>
+    <div className="h-screen flex">
       <div className="w-48 flex">
         <ul className="w-full space-y-2 text-sm font-semibold cursor-pointer">
           <li>

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import  Header  from '../../navigation/header/Header';
+import Header from '../../navigation/header/Header';
 import Footer from '../../navigation/footer/Footer';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
@@ -18,7 +18,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({
       </Head>
       <div className={`min-h-screen flex flex-col ${justify}`} {...divProps}>
         <Header />
-          <main className="">{children}</main>
+        <main className="">{children}</main>
         <Footer />
       </div>
     </>
