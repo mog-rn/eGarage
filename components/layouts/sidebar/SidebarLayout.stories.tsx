@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import BaseTemplate, { IBaseTemplate } from './BaseTemplate';
+import SidebarLayout, { ISidebarLayout } from './SidebarLayout';
 import { mockBaseTemplateProps } from './BaseTemplate.mocks';
 
 export default {

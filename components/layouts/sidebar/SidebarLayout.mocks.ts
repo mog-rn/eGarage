@@ -1,7 +1,7 @@
-import { IBaseTemplate } from './BaseTemplate';
+import { ISidebarLayout } from './SidebarLayout';
 
-const base: IBaseTemplate = {
-  sampleTextProp: 'Hello world!',
+const base: ISidebarLayout = {
+  
 };
 
 export const mockBaseTemplateProps = {
