@@ -1,11 +1,11 @@
 import styles from './BaseTemplate.module.css';
 
-export interface IBaseTemplate {
+export interface IFooter {
   sampleTextProp: string;
 }
 
-const BaseTemplate: React.FC<IBaseTemplate> = ({ sampleTextProp }) => {
+const Footer: React.FC<IFooter> = ({ sampleTextProp }) => {
   return <div className={styles.container}>{sampleTextProp}</div>;
 };
 
-export default BaseTemplate;
+export default Footer;
