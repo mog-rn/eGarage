@@ -1,11 +1,11 @@
 import styles from './TestimonialsCard.module.css';
 
 export interface ITestimonialsCard {
-  sampleTextProp: string;
+  
 }
 
-const TestimonialsCard: React.FC<ITestimonialsCard> = ({sampleTextProp}) => {
-  return <div>{sampleTextProp}</div>
+const TestimonialsCard: React.FC<ITestimonialsCard> = () => {
+  return <div>Testimonials</div>
 }
  
 export default TestimonialsCard
