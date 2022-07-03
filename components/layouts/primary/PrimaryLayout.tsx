@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Header } from '../../../stories/Header';
+import  Header  from '../../navigation/header/Header';
 import Footer from '../../navigation/footer/Footer';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
