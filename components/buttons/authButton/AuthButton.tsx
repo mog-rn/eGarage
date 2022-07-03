@@ -1,11 +1,11 @@
-import styles from './BaseTemplate.module.css';
+import styles from './AuthButton.module.css';
 
-export interface IBaseTemplate {
+export interface IAuthButton {
   sampleTextProp: string;
 }
 
-const BaseTemplate: React.FC<IBaseTemplate> = ({ sampleTextProp }) => {
+const AuthButton: React.FC<IAuthButton> = ({ sampleTextProp }) => {
   return <div className={styles.container}>{sampleTextProp}</div>;
 };
 
-export default BaseTemplate;
+export default AuthButton;
