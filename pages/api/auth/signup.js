@@ -14,9 +14,9 @@ const client = new GraphQLClient(GRAPHCMS_URL, {
   },
 });
 
-const CreateUserMutation = gql`
-  mutation CreateEgarageUser($userData: EgarageUserInput!) {
-    createEgarageUser(data: $userData) {
+const createEGarageUserMutation = gql`
+  mutation createEGarageUser($userData: EGarageUserCreateInput!) {
+    createEGarageUser(data: $userData) {
       id
       email
       token
@@ -25,9 +25,9 @@ const CreateUserMutation = gql`
 `;
 
 export default async function handler(req, res) {
-  const { email, password, first_name, last_name } = req.body;
-  if (!email || !password || !first_name || !last_name) {
-    return res.status(400).end()
+  const { email, password, firstname, lastname } = req.body;
+  if (!email || !password || !firstname || !lastname) {
+    return res.status(400).end();
   }
 
   const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
@@ -35,12 +35,14 @@ export default async function handler(req, res) {
   const userData = {
     email,
     password: hashedPassword,
-    first_name,
-    last_name,
+    firstname,
+    lastname,
     token,
   };
 
-  const response = await client.request(CreateUserMutation, { userData });
+  const response = await client.request(createEGarageUserMutation, {
+    userData,
+  });
 
   if (!response?.createUser) {
     return res.status(500).json({ error: 'Error creating user' });

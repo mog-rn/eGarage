@@ -7,7 +7,7 @@ import { read } from 'fs';
 const cookie = {
   cookieName: process.env.COOKIE_NAME,
   password: process.env.COOKIE_PASSWORD,
-  cookieOptions: { secure: process.env.NODE_ENV === 'production' },
+  cookieOptions: { secure: false }, //process.env.NODE_ENV === 'production'
 };
 
 const { GRAPHCMS_URL, GRAPHCMS_PERMANENTAUTH_TOKEN, JWT_SECRET } = process.env;

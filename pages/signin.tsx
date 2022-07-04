@@ -47,6 +47,10 @@ const Login = () => {
     }
   };
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="flex items-center justify-center h-screen bg-white">
       <div
@@ -55,40 +59,43 @@ const Login = () => {
       >
         {/* Image */}
         <div></div>
-        <form className="flex flex-col space-y-3 py-8 items-center justify-start">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col space-y-3 py-8 items-center justify-start"
+        >
           <h1 className="font-bold text-lg">Sign In</h1>
           <p className="text-xs text-green text-opacity-80">
             Welcome back to eGarage!
           </p>
-          <div className='flex flex-col space-y-5 justify-center'>
-          <div className="flex flex-col">
-            <label className="text-sm" htmlFor="email">
-              Email
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              className="w-64 text-start h-2 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
+          <div className="flex flex-col space-y-5 justify-center">
+            <div className="flex flex-col">
+              <label className="text-sm" htmlFor="email">
+                Email
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                className="w-64 text-start h-2 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
             transition duration-500 ease-in-out "
-            />
-          </div>
-          <div className='items-center'>
-            <label className="text-sm" htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              className="w-64 h-8 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
+              />
+            </div>
+            <div className="items-center">
+              <label className="text-sm" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                className="w-64 h-8 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
             transition duration-500 ease-in-out "
-            />
-          </div>
+              />
+            </div>
           </div>
           {/* Login buttons */}
           <div>
