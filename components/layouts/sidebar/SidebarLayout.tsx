@@ -47,7 +47,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
               </h1>
             </div>
             <div className="w-48 flex pt-10">
-              <ul className="w-full space-y-4 text-sm font-semibold cursor-pointer">
+              <ul className="w-full space-y-4 text-sm lg:text-lg md:text-md font-semibold cursor-pointer">
                 <li className='flex hover:text-green transform hover:scale-100 ease-out duration-500 items-center space-x-3'>
                   <GiSpeedometer className="text-green h-10 w-6" />
                   <Link href="/dashboard">Dashboard</Link>
