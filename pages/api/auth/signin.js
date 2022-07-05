@@ -29,10 +29,10 @@ const getUserByEmailQuery = gql`
 
 const updateUserMutation = gql`
   mutation updateUser(
-    $where: EgarageUserWhereUniqueInput!
-    $data: EgarageUserUpdateInput!
+    $where: EGarageUserWhereUniqueInput!
+    $data: EGarageUserUpdateInput!
   ) {
-    updateEgarageUser(data: $data, where: $where) {
+    updateEGarageUser(data: $data, where: $where) {
       token
       email
     }

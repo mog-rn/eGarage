@@ -11,7 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
-  // const [password, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const redirectIfAuthenticated = async () => {
     const isUserAuthenticated = await getAuthenticatedUser();
@@ -26,7 +26,7 @@ const Register = () => {
 
   const signUp = async () => {
     try {
-      // setIsLoading: true
+      setIsLoading(true)
       const response = await axios({
         method: 'post',
         url: API_ROUTES.SIGN_UP,
@@ -43,9 +43,9 @@ const Register = () => {
       }
       Router.push(APP_ROUTES.SIGN_IN);
     } catch (e: any) {
-      console.log('Something went wrong while creating an account', e.response.data);
+      console.log('Something went wrong while creating an account', e);
     } finally {
-      // setIsLoading(fase)
+      setIsLoading(false)
     }
   };
 
@@ -139,7 +139,7 @@ const Register = () => {
               className="bg-green px-5 py-2 text-[#fff] rounded-lg"
             >
               {
-                // isLoading ? <Loading /> : null
+                isLoading ? <div className='mr-2 w-5 h-f border-l-2 rounded-full animate-spin' /> : null
               }
               <span>Register</span>
             </button>
