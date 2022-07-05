@@ -3,8 +3,8 @@
   <img src="https://img.shields.io/badge/node-%3E%3D16.0.0-blue.svg" />
   <img src="https://img.shields.io/badge/yarn-%3E%3D1.22.0-blue.svg" />
   <img src="https://img.shields.io/badge/npm-please-use-yarn-blue.svg" />
-  <a href="https://twitter.com/m\_ogakadev" target="_blank">
-    <img alt="Twitter: m\_ogakadev" src="https://img.shields.io/twitter/follow/m\_ogakadev.svg?style=social" />
+  <a href="https://twitter.com/m_ogakadev" target="_blank">
+    <img alt="Twitter: m_ogakadev" src="https://img.shields.io/twitter/follow/m_ogakadev.svg?style=social" />
   </a>
 </p>
 
@@ -21,7 +21,7 @@
 ## Install
 
 ```sh
-yar
+yarn
 ```
 
 ## Usage
