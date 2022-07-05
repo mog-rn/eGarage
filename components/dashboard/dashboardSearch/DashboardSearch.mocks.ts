@@ -1,7 +1,6 @@
 import { IDashboardSearch } from './DashboardSearch';
 
-const base: IDashboardSearch = {
-};
+const base: IDashboardSearch = {};
 
 export const mockDashboardSearchProps = {
   base,
