@@ -13,9 +13,9 @@ const Home: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-      <Hero />
-      <GarageCard />
-      <TestimonialsCard />
+        <Hero />
+        <GarageCard />
+        <TestimonialsCard />
       </div>
     </div>
   );

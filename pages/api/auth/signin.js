@@ -38,37 +38,37 @@ const updateUserMutation = gql`
   }
 `;
 
-export default withIronSessionApiRoute(
-  async function signIn(req, res) {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      res.status(400).end();
-      return;
-    }
-    const getUserResponse = await client.request(getUserByEmailQuery, { email });
-    const { eGarageUser } = getUserResponse;
-    if (!eGarageUser) {
-      res.status(400).end();
-      return;
-    }
-    const { password: hashedPassword } = eGarageUser;
-    const isMatch = await bcrypt.compare(password, hashedPassword);
-    if (!isMatch) {
-      res.status(400).end();
-      return;
-    }
-    const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: 36005 });
-    const updateUserResponse = await client.request(updateUserMutation, { where: { email }, data: { token } });
-    const { updateEGarageUser } = updateUserResponse;
-    if (!updateEGarageUser?.token) {
-      res.status(500).end();
-      return;
-    }
-    req.session.user = {
-      token: updateEGarageUser.token
-    };
-    await req.session.save();
-    res.status(200).json({ token: updateEGarageUser.token });
-  },
-  cookie
-);
+export default withIronSessionApiRoute(async function signIn(req, res) {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(400).end();
+    return;
+  }
+  const getUserResponse = await client.request(getUserByEmailQuery, { email });
+  const { eGarageUser } = getUserResponse;
+  if (!eGarageUser) {
+    res.status(400).end();
+    return;
+  }
+  const { password: hashedPassword } = eGarageUser;
+  const isMatch = await bcrypt.compare(password, hashedPassword);
+  if (!isMatch) {
+    res.status(400).end();
+    return;
+  }
+  const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: 36005 });
+  const updateUserResponse = await client.request(updateUserMutation, {
+    where: { email },
+    data: { token },
+  });
+  const { updateEGarageUser } = updateUserResponse;
+  if (!updateEGarageUser?.token) {
+    res.status(500).end();
+    return;
+  }
+  req.session.user = {
+    token: updateEGarageUser.token,
+  };
+  await req.session.save();
+  res.status(200).json({ token: updateEGarageUser.token });
+}, cookie);

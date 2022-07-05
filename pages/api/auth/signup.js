@@ -36,9 +36,11 @@ export default async function handler(req, res) {
     password: hashedPassword,
     firstname,
     lastname,
-    token
+    token,
   };
-  const response = await client.request(createEGarageUserMutation, { userData });
+  const response = await client.request(createEGarageUserMutation, {
+    userData,
+  });
   if (!response?.createEgarageUser?.id) {
     res.status(500);
   }

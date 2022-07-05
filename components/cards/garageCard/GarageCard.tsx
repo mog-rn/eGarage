@@ -3,7 +3,7 @@
 export interface IGarageCard {}
 
 const GarageCard: React.FC<IGarageCard> = () => {
-  return <div className=''>Garage card</div>;
+  return <div className="">Garage card</div>;
 };
 
 export default GarageCard;

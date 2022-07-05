@@ -26,7 +26,7 @@ const Header: React.FC<IHeader> = () => {
           </li>
         </ul>
       </div>
-      <div className='md:hidden'>
+      <div className="md:hidden">
         <HiMenu className="text-green text-md" />
       </div>
       <div className="hidden md:block space-x-3">

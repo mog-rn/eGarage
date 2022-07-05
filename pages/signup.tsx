@@ -11,7 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const redirectIfAuthenticated = async () => {
     const isUserAuthenticated = await getAuthenticatedUser();
@@ -26,7 +26,7 @@ const Register = () => {
 
   const signUp = async () => {
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       const response = await axios({
         method: 'post',
         url: API_ROUTES.SIGN_UP,
@@ -45,13 +45,13 @@ const Register = () => {
     } catch (e: any) {
       console.log('Something went wrong while creating an account', e);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
   const handleSubmit = (e: any) => {
-        e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
   return (
     <div className="flex items-center justify-center h-screen bg-white">
@@ -65,43 +65,44 @@ const Register = () => {
       >
         {/* Image */}
         <div></div>
-        <form 
-            onSubmit={handleSubmit}
-        className="flex flex-col space-y-3 py-8 items-center overflow-y justify-start">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col space-y-3 py-8 items-center overflow-y justify-start"
+        >
           <h1 className="font-bold text-lg">Sign Up</h1>
           <p className="text-xs text-green text-opacity-80">
             Welcome to eGarage!
           </p>
           <div className="flex flex-col space-y-5 justify-center">
-            <div className='flex space-x-2'>
-            <div className="flex flex-col">
-              <label className="text-sm" htmlFor="firstname">
-                First Name
-              </label>
-              <input
-                type="text"
-                value={firstname}
-                onChange={(e) => {
-                  setFirstName(e.target.value);
-                }}
-                className="w-32 text-start h-2 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
+            <div className="flex space-x-2">
+              <div className="flex flex-col">
+                <label className="text-sm" htmlFor="firstname">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  value={firstname}
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                  }}
+                  className="w-32 text-start h-2 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
             transition duration-500 ease-in-out "
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-sm" htmlFor="lastname">
-                Last Name
-              </label>
-              <input
-                type="text"
-                value={lastname}
-                onChange={(e) => {
-                  setLastName(e.target.value);
-                }}
-                className="w-32 text-start h-2 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
+                />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-sm" htmlFor="lastname">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  value={lastname}
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                  }}
+                  className="w-32 text-start h-2 rounded-xl outline-none focus:outline-none p-5 text-gray-400 focus:border-gray-400 border-2 border-transparent
             transition duration-500 ease-in-out "
-              />
-            </div>
+                />
+              </div>
             </div>
             <div className="flex flex-col">
               <label className="text-sm" htmlFor="email">
@@ -138,9 +139,9 @@ const Register = () => {
               onClick={signUp}
               className="bg-green px-5 py-2 text-[#fff] rounded-lg"
             >
-              {
-                isLoading ? <div className='mr-2 w-5 h-f border-l-2 rounded-full animate-spin' /> : null
-              }
+              {isLoading ? (
+                <div className="mr-2 w-5 h-f border-l-2 rounded-full animate-spin" />
+              ) : null}
               <span>Register</span>
             </button>
           </div>

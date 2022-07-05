@@ -30,8 +30,8 @@ const Login = () => {
         url: API_ROUTES.SIGN_IN,
         data: {
           email,
-          password
-        }
+          password,
+        },
       });
       if (!response?.data?.token) {
         console.log('Something went wrong during signing in: ', response);
@@ -39,11 +39,9 @@ const Login = () => {
       }
       storeTokenInLocalStorage(response.data.token);
       Router.push(APP_ROUTES.HOME);
-    }
-    catch (err) {
+    } catch (err) {
       console.log('Some error occured during signing in: ', err);
-    }
-    finally {
+    } finally {
       setIsLoading(false);
     }
   };

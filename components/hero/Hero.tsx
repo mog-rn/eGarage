@@ -5,18 +5,11 @@ export interface IHero {}
 
 const Hero: React.FC<IHero> = () => {
   return (
-    <div className=''>
-    <div className="h-screen relative w-screen">
-      <Image
-        src="/garage.png"
-        layout="fill"
-        objectFit="cover"
-        alt="hero"
-      />
-      <div className='text-[#fff] z-50'>
-        
+    <div className="">
+      <div className="h-screen relative w-screen">
+        <Image src="/garage.png" layout="fill" objectFit="cover" alt="hero" />
+        <div className="text-[#fff] z-50"></div>
       </div>
-    </div>
     </div>
   );
 };
