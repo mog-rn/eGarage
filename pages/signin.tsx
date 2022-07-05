@@ -3,7 +3,7 @@ import { getAuthenticatedUser, storeTokenInLocalStorage } from '../lib/common';
 import { useState, useEffect } from 'react';
 import { API_ROUTES, APP_ROUTES } from '../utils/constants';
 import axios from 'axios';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Router from 'next/router';
 
 const Login = () => {

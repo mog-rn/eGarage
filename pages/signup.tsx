@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getAuthenticatedUser } from '../lib/common';
 import { API_ROUTES, APP_ROUTES } from '../utils/constants';
 import axios from 'axios';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Router from 'next/router';
 
 const Register = () => {

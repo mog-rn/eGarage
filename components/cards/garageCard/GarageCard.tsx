@@ -1,4 +1,4 @@
-import styles from './GarageCard.module.css';
+// import styles from './GarageCard.module.css';
 
 export interface IGarageCard {}
 
