@@ -5,6 +5,12 @@ import React, { ReactNode } from 'react';
 import { useUser } from '../../../lib/customHooks';
 import { API_ROUTES, APP_ROUTES } from '../../../utils/constants';
 import Avatar from '../../avatar/Avatar';
+import {BiUserCircle} from 'react-icons/bi';
+import {GiSpeedometer} from "react-icons/gi";
+import {MdReviews} from "react-icons/md";
+import {AiOutlineSearch} from "react-icons/ai"
+import {FcFaq} from "react-icons/fc"
+import {FiLogOut} from "react-icons/fi"
 
 export interface ISidebarLayout {
   children: ReactNode;
@@ -14,8 +20,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
   
   const { user, authenticated } = useUser();
 
-  const testuser = user?.firstname || "cole"
-
+  // const User = {user}
   const logout = async () => {
     localStorage.clear();
     // await axios({
@@ -30,42 +35,47 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
   }
   return (
     <div className="h-screen flex">
-      <div className="p-5 flex flex-col items-center justify-start">
+      <div className="flex flex-col items-center justify-start">
         {/* Avatar */}
         {user && (
-          <>
+          <div className='hidden md:block md:p-5'>
             <div className="pb-5 flex space-x-4 items-center ">
               <Avatar />
               <h1 className="text-green">
                 
-                Hello, <span className="text-black">{testuser}</span>
+                Hello, <span className="text-black">{user.firstname}</span>
               </h1>
             </div>
             <div className="w-48 flex pt-10">
               <ul className="w-full space-y-4 text-sm font-semibold cursor-pointer">
-                <li>
+                <li className='flex hover:text-green transform hover:scale-100 ease-out duration-500 items-center space-x-3'>
+                  <GiSpeedometer className="text-green h-10 w-6" />
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
-                <li>
+                <li className='flex hover:text-green transform hover:scale-100 ease-out duration-500 items-center space-x-3'>
+                  <AiOutlineSearch className="text-green h-10 w-6" />
                   <Link href="/search">Search</Link>
                 </li>
-                <li>
+                <li className='flex hover:text-green transform hover:scale-100 ease-out duration-500 items-center space-x-3'>
+                  <MdReviews className="text-green h-10 w-6" />
                   <Link href="/review">Reviews</Link>
                 </li>
-                <li>
+                <li className='flex hover:text-green transform hover:scale-100 ease-out duration-500 items-center space-x-3'>
+                  <FcFaq className="text-green h-10 w-6" />
                   <Link href="/faq">FAQs</Link>
                 </li>
-                <li>
+                <li className='flex hover:text-green transform hover:scale-100 ease-out duration-500 items-center space-x-3'>
+                  <BiUserCircle className="text-green h-10 w-6" />
                   <Link href="/account">Account</Link>
                 </li>
               </ul>
             </div>
             <div className='absolute bottom-10'>
-              <button className="" onClick={logout}>
-                Logout
+              <button className="flex items-center" onClick={logout}>
+                <FiLogOut className='h-10 w-6 mr-4 text-green' />Logout
               </button>
             </div>
-          </>
+          </div>
         )}
       </div>
       <main className="flex-1 p-10 bg-[#F6FBF2]">{children}</main>
