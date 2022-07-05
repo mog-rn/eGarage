@@ -14,6 +14,8 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
   
   const { user, authenticated } = useUser();
 
+  const testuser = user?.firstname || "cole"
+
   const logout = async () => {
     localStorage.clear();
     // await axios({
@@ -36,7 +38,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
               <Avatar />
               <h1 className="text-green">
                 
-                Hello, <span className="text-black">{user?.firstname || "cole"}</span>
+                Hello, <span className="text-black">{testuser}</span>
               </h1>
             </div>
             <div className="w-48 flex pt-10">
