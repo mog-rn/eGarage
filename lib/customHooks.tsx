@@ -4,7 +4,7 @@ import { APP_ROUTES } from '../utils/constants';
 import Router from 'next/router';
 
 export const useUser = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {

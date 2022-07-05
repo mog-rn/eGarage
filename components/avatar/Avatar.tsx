@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export interface IAvatar {}
 
-const Avatar: React.FC<IAvatar> = ({}) => {
+const Avatar: React.FC<IAvatar> = () => {
   return (
     <div className="rounded-full border-2 h-16 w-16 relative">
       <Image

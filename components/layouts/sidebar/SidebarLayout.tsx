@@ -15,14 +15,15 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
 
   const logout = async () => {
     localStorage.clear();
-    await axios({
-      method: 'POST',
-      url: API_ROUTES.LOGOUT,
-    });
+    // await axios({
+    //   method: 'POST',
+    //   url: API_ROUTES.LOGOUT,
+    // });
     Router.push(APP_ROUTES.SIGN_IN);
   };
 
   if (!user || !authenticated) {
+    return <></>
   }
   return (
     <div className="h-screen flex">
@@ -30,14 +31,15 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
         {/* Avatar */}
         {user && (
           <>
-            <div className="pb-5 flex space-x-4 items-center justify-between">
+            <div className="pb-5 flex space-x-4 items-center ">
               <Avatar />
               <h1 className="text-green">
+                
                 Hello, <span className="text-black">{user?.firstname}</span>
               </h1>
             </div>
-            <div className="w-48 flex">
-              <ul className="w-full space-y-2 text-sm font-semibold cursor-pointer">
+            <div className="w-48 flex pt-10">
+              <ul className="w-full space-y-4 text-sm font-semibold cursor-pointer">
                 <li>
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
@@ -55,8 +57,8 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
                 </li>
               </ul>
             </div>
-            <div>
-              <button className="logOut" onClick={logout}>
+            <div className='absolute bottom-10'>
+              <button className="" onClick={logout}>
                 Logout
               </button>
             </div>
