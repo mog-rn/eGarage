@@ -9,7 +9,7 @@ const cookie = {
 export default withIronSessionApiRoute(
     function signOut(req, res) {
         req.session.destroy()
-        req.statusCode(200).json({ok: true})
+        res.statusCode(200).json({ok: true})
     },
     cookie
 )

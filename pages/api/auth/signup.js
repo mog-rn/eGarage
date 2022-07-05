@@ -27,25 +27,20 @@ const createEGarageUserMutation = gql`
 export default async function handler(req, res) {
   const { email, password, firstname, lastname } = req.body;
   if (!email || !password || !firstname || !lastname) {
-    return res.status(400).end();
+    res.status(400).end();
   }
-
   const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 8);
   const userData = {
     email,
     password: hashedPassword,
     firstname,
     lastname,
-    token,
+    token
   };
-
-  const response = await client.request(createEGarageUserMutation, {
-    userData,
-  });
-
-  if (!response?.createUser) {
-    return res.status(500).json({ error: 'Error creating user' });
+  const response = await client.request(createEGarageUserMutation, { userData });
+  if (!response?.createEgarageUser?.id) {
+    res.status(500);
   }
   res.status(200).json({ token });
 }

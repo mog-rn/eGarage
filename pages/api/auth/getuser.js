@@ -10,7 +10,7 @@ const client = new GraphQLClient(GRAPHCMS_URL, {
 });
 
 const getUserByEmailQuery = gql`
-  query getUserByEmailQuery($emai: String!) {
+  query getUserByEmailQuery($email: String!) {
     eGarageUser(where: { email: $email }, stage: DRAFT) {
       email
       firstname
@@ -21,22 +21,19 @@ const getUserByEmailQuery = gql`
 
 export default async function GetAuthenticatedUser(req, res) {
   const defaultReturnObject = { authenticated: false, user: null };
-
   try {
-    const token = String(req?.header?.authorization?.replace('Bearer', ''));
+    const token = String(req?.headers?.authorization?.replace('Bearer ', ''));
     const decoded = jwt.verify(token, JWT_SECRET);
-    const getUserResponse = await client.request(getUserByEmailQuery, {
-      email: decoded.email,
-    });
+    const getUserResponse = await client.request(getUserByEmailQuery, { email: decoded.email });
     const { eGarageUser } = getUserResponse;
-
     if (!eGarageUser) {
       res.status(400).json(defaultReturnObject);
       return;
     }
-    res.status(200).json({ authenticated: true, user: eGarageUser });
-  } catch (e) {
-    console.log('GetAuthenticatedUser, Something went wrong', e);
+    res.status(200).json({ authenticated: true, user: nextUser });
+  }
+  catch (err) {
+    console.log('GetAuthenticatedUser, Something Went Wrong', err);
     res.status(400).json(defaultReturnObject);
   }
 }
