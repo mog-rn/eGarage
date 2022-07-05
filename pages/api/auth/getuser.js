@@ -34,7 +34,7 @@ export default async function GetAuthenticatedUser(req, res) {
       res.status(400).json(defaultReturnObject);
       return;
     }
-    res.status(200).json({ authenticated: true, user: egarageUser });
+    res.status(200).json({ authenticated: true, user: eGarageUser });
   } catch (e) {
     console.log('GetAuthenticatedUser, Something went wrong', e);
     res.status(400).json(defaultReturnObject);
