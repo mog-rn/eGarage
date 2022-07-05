@@ -8,6 +8,6 @@ export const API_ROUTES = {
 export const APP_ROUTES = {
     SIGN_UP: '/signup',
     SIGN_IN: '/signin',
-    HOME: '/',
+    HOME: '/dashboard',
     PROFILE: '/profile',
 }

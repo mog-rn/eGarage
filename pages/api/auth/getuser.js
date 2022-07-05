@@ -11,7 +11,7 @@ const client = new GraphQLClient(GRAPHCMS_URL, {
 
 const getUserByEmailQuery = gql`
   query getUserByEmailQuery($emai: String!) {
-    egarageUser(where: { email: $email }, stage: DRAFT) {
+    eGarageUser(where: { email: $email }, stage: DRAFT) {
       email
       firstname
       lastname
@@ -28,9 +28,9 @@ export default async function GetAuthenticatedUser(req, res) {
     const getUserResponse = await client.request(getUserByEmailQuery, {
       email: decoded.email,
     });
-    const { egarageUser } = getUserResponse;
+    const { eGarageUser } = getUserResponse;
 
-    if (!egarageUser) {
+    if (!eGarageUser) {
       res.status(400).json(defaultReturnObject);
       return;
     }

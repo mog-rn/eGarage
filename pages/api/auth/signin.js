@@ -2,7 +2,6 @@ import { withIronSessionApiRoute } from 'iron-session/next';
 import { GraphQLClient, gql } from 'graphql-request';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { read } from 'fs';
 
 const cookie = {
   cookieName: process.env.COOKIE_NAME,
@@ -22,7 +21,7 @@ const getUserByEmailQuery = gql`
     eGarageUser(where: { email: $email }, stage: DRAFT) {
       id
       email
-      passowrd
+      password
     }
   }
 `;
@@ -39,14 +38,18 @@ const updateUserMutation = gql`
   }
 `;
 
-export default withIronSessionApiRoute(async function signIn(req, res) {
+export default withIronSessionApiRoute(
+  async function signIn(req, res) {
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(400).end();
     return;
   }
 
-  const { password: hashedPassword } = egarageUser;
+  const getUserResponse = await client.request(getUserByEmailQuery, { email });
+  const { eGarageUser } = getUserResponse;
+
+  const { password: hashedPassword } = eGarageUser;
   const isMatch = await bcrypt.compare(password, hashedPassword);
 
   if (!isMatch) {
