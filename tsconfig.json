@@ -20,6 +20,6 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/api/auth/signup.js"
-, "lib/customHooks.tsx"  ],
+, "lib/customHooks.tsx", "lib/GoogleApi.jsx"  ],
   "exclude": ["node_modules"]
 }
