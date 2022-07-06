@@ -7,7 +7,7 @@ import { NextPageWithLayout } from './page';
 const Dashboard: NextPageWithLayout = () => {
   return (
     <div className="flex">
-      <div className="md:space-y-10 md:p-10">
+      <div className="md:space-y-10 md:p-5">
         <DashboardSearch />
         <DashboardBanner />
       </div>

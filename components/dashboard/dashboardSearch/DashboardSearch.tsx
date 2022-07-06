@@ -1,7 +1,13 @@
 export interface IDashboardSearch {}
 
-const DashboardSearch: React.FC<IDashboardSearch> = ({ sampleTextProp }) => {
-  return <div className="">Dashboard Search</div>;
+const DashboardSearch: React.FC<IDashboardSearch> = () => {
+  return (
+    <div className="">
+      <div>
+        
+      </div>
+    </div>
+  );
 };
 
 export default DashboardSearch;

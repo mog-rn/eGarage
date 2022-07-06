@@ -3,9 +3,9 @@ import { getAuthenticatedUser } from './common';
 import { APP_ROUTES } from '../utils/constants';
 import Router from 'next/router';
 
-export const useUser = () => {
-  const [user, setUser] = useState<any[]>();
-  const [authenticated, setAuthenticated] = useState(false);
+export function useUser() {
+  const [user, setUser] = useState(null);
+  const [authenticated, setAutenticated] = useState(false);
 
   useEffect(() => {
     async function getUserDetails() {
@@ -14,12 +14,11 @@ export const useUser = () => {
         Router.push(APP_ROUTES.SIGN_IN);
         return;
       }
-
       setUser(user);
-      setAuthenticated(authenticated);
+      setAutenticated(authenticated);
     }
     getUserDetails();
   }, []);
 
   return { user, authenticated };
-};
+}

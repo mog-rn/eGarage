@@ -34,14 +34,14 @@ const Header: React.FC<IHeader> = () => {
           className="text-green px-4 py-1 hover:bg-green hover:text-[#fff] 
               transition duration-300 ease-in rounded-lg border-transparent border-2"
         >
-          Login
+          <Link href='/signin'>Login</Link>
         </button>
         <button
           className="text-[#ffffff] bg-green px-4 rounded-lg py-1
             hover:bg-white hover:text-green hover:border-green border-2 
             transition duration-300 ease-in border-transparent"
         >
-          Get Started
+          <Link href="/signup">Get Started</Link>
         </button>
       </div>
     </div>
