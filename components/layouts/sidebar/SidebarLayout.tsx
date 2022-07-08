@@ -22,10 +22,10 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
   // const User = {user}
   const logout = async () => {
     localStorage.clear();
-    // await axios({
-    //   method: 'POST',
-    //   url: API_ROUTES.LOGOUT,
-    // });
+    await axios({
+      method: 'POST',
+      url: API_ROUTES.LOGOUT,
+    });
     Router.push(APP_ROUTES.SIGN_IN);
   };
 
