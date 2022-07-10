@@ -77,7 +77,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
           </div>
         )}
       </div>
-      <main className="flex-1 p-10 bg-[#F6FBF2]">{children}</main>
+      <main className="flex-1 bg-[#F6FBF2]">{children}</main>
     </div>
   );
 };

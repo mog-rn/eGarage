@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Wrapper, Status } from '@googlemaps/react-wrapper';
+import useDeepCompareEffectForMaps from '../../lib/mapHooks';
 
 interface IMap extends google.maps.MapOptions {
   style: { [key: string]: string };
@@ -15,7 +15,7 @@ const Map: React.FC<IMap> = ({
   children,
   ...options
 }) => {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
 
   useEffect(() => {
@@ -38,20 +38,21 @@ const Map: React.FC<IMap> = ({
     }
   }, [map, onClick, onIdle]);
 
-  // useDeepCompareEffectForMaps(() => {
-  //   if (map) {
-  //     map.setOptions(options)
-  //   }
-  // }, [map, options])
+  useDeepCompareEffectForMaps(() => {
+    if (map) {
+      map.setOptions(options);
+    }
+  }, [map, options]);
 
   return (
-    <div ref={ref} style={style}>
+    <>
+      <div ref={ref} style={style} />
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, { map });
         }
       })}
-    </div>
+    </>
   );
 };
 
