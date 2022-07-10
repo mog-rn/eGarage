@@ -34,7 +34,7 @@ const Header: React.FC<IHeader> = () => {
           className="text-green px-4 py-1 hover:bg-green hover:text-[#fff] 
               transition duration-300 ease-in rounded-lg border-transparent border-2"
         >
-          <Link href='/signin'>Login</Link>
+          <Link href="/signin">Login</Link>
         </button>
         <button
           className="text-[#ffffff] bg-green px-4 rounded-lg py-1

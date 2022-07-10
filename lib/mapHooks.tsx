@@ -31,5 +31,5 @@ export default function useDeepCompareEffectForMaps(
   callback: React.EffectCallback,
   dependencies: any[]
 ) {
-    React.useEffect(callback, dependencies.map(useDeepCompareMemorize))
+  React.useEffect(callback, dependencies.map(useDeepCompareMemorize));
 }

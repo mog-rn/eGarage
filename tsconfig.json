@@ -19,7 +19,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/auth/signup.js"
-, "lib/customHooks.tsx", "lib/GoogleApi.jsx"  ],
+    "pages/api/auth/signup.js",
+    "lib/customHooks.tsx",
+    "lib/GoogleApi.jsx"
+  ],
   "exclude": ["node_modules"]
 }
