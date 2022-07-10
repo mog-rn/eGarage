@@ -1,47 +1,56 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
+import { Wrapper, Status } from '@googlemaps/react-wrapper';
 
-export interface IMap {
-    mapType: google.maps.MapTypeId,
-    mapTypeControl?: boolean;
+interface IMap extends google.maps.MapOptions {
+  style: { [key: string]: string };
+  onClick?: (e: google.maps.MapMouseEvent) => void;
+  onIdle?: (map: google.maps.Map) => void;
+  children?: React.ReactNode;
 }
 
-type GoogleLatLng = google.maps.LatLng;
-type GoogleMap = google.maps.Map;
+const Map: React.FC<IMap> = ({
+  onClick,
+  onIdle,
+  style,
+  children,
+  ...options
+}) => {
+  const ref = useRef<HTMLDivElement>();
+  const [map, setMap] = useState<google.maps.Map>();
 
-const Map: React.FC<IMap> = ({mapType, mapTypeControl}) => {
-  
-  const ref = useRef<HTMLDivElement>(null)
-  const [map, setMap] = useState<GoogleMap>()
-
-  const startMap = (): void => {
-    if (!map) {
-      defaultMapStart()
+  useEffect(() => {
+    if (ref.current && !map) {
+      setMap(new window.google.maps.Map(ref.current, {}));
     }
-  }
+  }, [ref, map]);
 
-  const defaultMapStart = (): void => {
-    const defaultAddress = new google.maps.LatLng(59.9138204, 10.7522454);
-    initMap(5, defaultAddress);
-  }
-
-  const initMap = (zoomLevel:number, address: GoogleLatLng): void => {
-    if (ref.current) {
-      setMap(
-        new google.maps.Map(ref.current, {
-          zoom: zoomLevel,
-          center: address,
-          mapTypeControl: mapTypeControl,
-          streetViewControl: false,
-          // zoomControl: zoomControl,
-          mapTypeId: mapType
-        })
-      )
+  useEffect(() => {
+    if (map) {
+      ['click', 'idle'].forEach((eventName) =>
+        google.maps.event.clearListeners(map, eventName)
+      );
+      if (onClick) {
+        map.addListener('click', onClick);
+      }
+      if (onIdle) {
+        map.addListener('idle', () => onIdle(map));
+      }
     }
-  }
-  useEffect(startMap, [map])
+  }, [map, onClick, onIdle]);
+
+  // useDeepCompareEffectForMaps(() => {
+  //   if (map) {
+  //     map.setOptions(options)
+  //   }
+  // }, [map, options])
+
   return (
-    <div className="flex justify-center">
-      <div ref={ref} className='h-96 w-96'></div>
+    <div ref={ref} style={style}>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { map });
+        }
+      })}
     </div>
   );
 };
