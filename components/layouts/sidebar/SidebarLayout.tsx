@@ -64,7 +64,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
                 </li>
                 <li className="flex hover:text-green transform hover:scale-100 ease-out duration-500 items-center space-x-3">
                   <BiUserCircle className="text-green h-10 w-6" />
-                  <Link href="/account">Account</Link>
+                  <Link href="/profile">Account</Link>
                 </li>
               </ul>
             </div>
