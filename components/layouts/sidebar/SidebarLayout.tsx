@@ -48,7 +48,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
               <div className="pb-5 flex space-x-4 items-center ">
                 <Avatar />
                 <h1 className="text-green">
-                  Hello, <span className="text-black">{user.firstname}</span>
+                  Hello, <span className="text-black">{user}</span>
                 </h1>
               </div>
               <div className="w-48 flex pt-10">
