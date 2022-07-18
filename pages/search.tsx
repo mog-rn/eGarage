@@ -13,8 +13,8 @@ const Search: NextPageWithLayout = () => {
   const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
   const [zoom, setZoom] = useState(3); // Initial zoom level
   const [center, setCenter] = useState<google.maps.LatLngLiteral>({
-    lat: 0,
-    lng: 0,
+    lat: -34.397,
+    lng: 150.644,
   });
 
   const onClick = (e: google.maps.MapMouseEvent) => {
@@ -28,18 +28,22 @@ const Search: NextPageWithLayout = () => {
   };
 
   return (
-    <div className="max-h-screen max-w-screen bg-white h-screen grid ">
-      <Wrapper apiKey="AIzaSyBy3p7-C-8TZ7t26xFQ55YTQ99jQPWlXgI" render={render}>
-        <Map
-          center={center}
-          zoom={zoom}
-          style={{ flexGrow: '1', height: '100%' }}
+    <div className="max-h-screen max-w-screen bg-white h-screen flex">
+      <div className='w-[36rem]'>Search results</div>
+        <Wrapper
+          apiKey="AIzaSyBy3p7-C-8TZ7t26xFQ55YTQ99jQPWlXgI"
+          render={render}
         >
-          {clicks.map((latLng, i) => (
-            <Marker key={i} position={latLng} />
-          ))}
-        </Map>
-      </Wrapper>
+          <Map
+            center={center}
+            zoom={zoom}
+            style={{ flexGrow: '1', height: '100%' }}
+          >
+            {clicks.map((latLng, i) => (
+              <Marker key={i} position={latLng} />
+            ))}
+          </Map>
+        </Wrapper>
     </div>
   );
 };

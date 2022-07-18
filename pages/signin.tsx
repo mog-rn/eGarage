@@ -5,6 +5,7 @@ import { API_ROUTES, APP_ROUTES } from '../utils/constants';
 import axios from 'axios';
 // import Link from 'next/link';
 import Router from 'next/router';
+import Loading from '../components/loading/Loading';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -100,10 +101,10 @@ const Login = () => {
           <div>
             <button
               onClick={signIn}
-              className="bg-green px-5 py-2 text-[#fff] rounded-lg"
+              className="bg-green px-5 py-2 text-[#fff] rounded-lg flex space-x-2 items-center justify-center"
             >
               {
-                // isLoading ? <Loading /> : null
+                isLoading ? <Loading /> : null
               }
               <span>Login</span>
             </button>

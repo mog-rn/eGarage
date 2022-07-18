@@ -15,6 +15,7 @@ const Map: React.FC<IMap> = ({
   children,
   ...options
 }) => {
+  
   const ref = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
 
