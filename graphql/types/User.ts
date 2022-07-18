@@ -4,7 +4,7 @@ import { Garage } from './Garage';
 export const User = objectType({
   name: 'User',
   definition(t: any) {
-    t.string('user_id');
+    t.int('user_id');
     t.string('firstname');
     t.string('lastname');
     t.string('email');
