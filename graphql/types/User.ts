@@ -1,4 +1,5 @@
-import { enumType, extendType, objectType } from 'nexus';
+import { GraphQLDateTime } from 'graphql-iso-date';
+import { asNexusMethod, enumType, extendType, objectType } from 'nexus';
 import { Garage } from './Garage';
 
 export const User = objectType({
@@ -12,15 +13,15 @@ export const User = objectType({
     t.string('profileimg');
     t.string('user_description');
     t.string('role', { type: Role });
-    t.string('user_created_at');
+    t.string('created_at', { type: 'DateTime' });
     t.field('garage', {
       type: Garage,
       async resolve(_parent: any, _args: any, ctx: any) {
-        return await ctx.prisma.user.findUnique({
+        return await ctx.prisma.Users.findUnique({
           where: {
-            email: _parent.user_email,
+            user_id: _parent.user_id,
           },
-        });
+        }).garage();
       },
     });
   },
@@ -31,16 +32,16 @@ const Role = enumType({
   members: ['ADMIN', 'AUTOMOBILE_USER', 'GARAGE_OWNER'],
 });
 
+export const DateTime = asNexusMethod(GraphQLDateTime, 'date')
 
 export const UserQuery = extendType({
-    type: 'Query',
-    definition(t: any) {
-        t.nonNull.list.field('users', {
-            type: User,
-            async resolve(_parent: any, _args: any, ctx: any) {
-                return await ctx.prisma.Users.findMany();
-            } // getUsers
-        });
-    }
-}
-);
+  type: 'Query',
+  definition(t: any) {
+    t.nonNull.list.field('users', {
+      type: User,
+      async resolve(_parent: any, _args: any, ctx: any) {
+        return await ctx.prisma.Users.findMany();
+      }, // getUsers
+    });
+  },
+});
