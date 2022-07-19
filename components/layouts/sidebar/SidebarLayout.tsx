@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import React, { ReactNode } from 'react';
 import { useUser } from '../../../lib/customHooks';
-import { API_ROUTES, APP_ROUTES } from '../../../utils/constants';
+import { API_ROUTES, APP_ROUTES } from '../../../graphql/utils/constants';
 import Avatar from '../../avatar/Avatar';
 import { BiUserCircle } from 'react-icons/bi';
 import { GiSpeedometer } from 'react-icons/gi';

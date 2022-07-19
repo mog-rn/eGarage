@@ -10,7 +10,7 @@ datasource db {
 model Users {
   user_id    Int       @id @default(autoincrement())
   firstname  String?   @db.VarChar
-  lastname   String?   @db.VarChar
+  lastname   String?   @db.VarChar 
   email      String?   @unique @db.VarChar
   password   String?   @db.VarChar
   profileimg String?   @db.VarChar

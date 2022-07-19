@@ -53,11 +53,9 @@ type User {
   created_at: DateTime
   email: String
   firstname: String
-  garage: Garage
   lastname: String
   password: String
   profileimg: String
   role: Role
-  user_description: String
   user_id: Int
 }

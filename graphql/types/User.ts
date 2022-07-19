@@ -11,19 +11,18 @@ export const User = objectType({
     t.string('email');
     t.string('password');
     t.string('profileimg');
-    t.string('user_description');
     t.string('role', { type: Role });
     t.string('created_at', { type: 'DateTime' });
-    t.field('garage', {
-      type: Garage,
-      async resolve(_parent: any, _args: any, ctx: any) {
-        return await ctx.prisma.Users.findUnique({
-          where: {
-            user_id: _parent.user_id,
-          },
-        }).garage();
-      },
-    });
+    // t.field('garage', {
+    //   type: Garage,
+    //   async resolve(_parent: any, _args: any, ctx: any) {
+    //     return await ctx.prisma.users.findUnique({
+    //       where: {
+    //         garage_id: _parent.garage_id,
+    //       },
+    //     }).garage();
+    //   },
+    // });
   },
 });
 

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { getAuthenticatedUser } from '../lib/common';
-import { API_ROUTES, APP_ROUTES } from '../utils/constants';
+import { API_ROUTES, APP_ROUTES } from '../graphql/utils/constants';
 import axios from 'axios';
 // import Link from 'next/link';
 import Router from 'next/router';
