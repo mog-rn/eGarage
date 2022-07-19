@@ -1,7 +1,7 @@
 import React from 'react';
 import { getAuthenticatedUser, storeTokenInLocalStorage } from '../lib/common';
 import { useState, useEffect } from 'react';
-import { API_ROUTES, APP_ROUTES } from '../utils/constants';
+import { API_ROUTES, APP_ROUTES } from '../graphql/utils/constants';
 import axios from 'axios';
 // import Link from 'next/link';
 import Router from 'next/router';
