@@ -2,8 +2,6 @@ import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
 import React, { ReactNode } from 'react';
-import { useUser } from '../../../lib/customHooks';
-import { API_ROUTES, APP_ROUTES } from '../../../graphql/utils/constants';
 import Avatar from '../../avatar/Avatar';
 import { BiUserCircle } from 'react-icons/bi';
 import { GiSpeedometer } from 'react-icons/gi';
@@ -12,32 +10,14 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { FcFaq } from 'react-icons/fc';
 import { FiLogOut } from 'react-icons/fi';
 import PageLoading from '../../loading/pageLoading/PageLoading';
+import { useUser } from '@auth0/nextjs-auth0';
 
 export interface ISidebarLayout {
   children: ReactNode;
 }
 
 const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
-  const { user, authenticated } = useUser();
-  const [loading, setLoading] = React.useState(false);
-
-  const logout = async () => {
-    setLoading(true);
-    localStorage.clear();
-    await axios({
-      method: 'POST',
-      url: API_ROUTES.LOGOUT,
-    });
-    Router.push(APP_ROUTES.SIGN_IN);
-  };
-
-  if (!user || !authenticated) {
-    return (
-      <>
-        <PageLoading />
-      </>
-    );
-  }
+  const {user} = useUser();
   return (
     <>
       <div className="h-screen flex">
@@ -48,7 +28,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
               <div className="pb-5 flex space-x-4 items-center ">
                 <Avatar />
                 <h1 className="text-green">
-                  Hello, <span className="text-black">{user}</span>
+                  Hello, <span className="text-black">{}</span>
                 </h1>
               </div>
               <div className="w-48 flex pt-10">
@@ -76,9 +56,9 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
                 </ul>
               </div>
               <div className="absolute bottom-10">
-                <button className="flex items-center" onClick={logout}>
+                <button className="flex items-center">
                   <FiLogOut className="h-10 w-6 mr-4 text-green" />
-                  Logout
+                  <Link href="/api/auth/logout">Logout</Link>
                 </button>
               </div>
             </div>
