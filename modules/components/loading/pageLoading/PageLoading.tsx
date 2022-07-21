@@ -9,11 +9,16 @@ const override: CSSProperties = {
 };
 
 const PageLoading = () => {
-    const [loading, setLoading] = useState(true);
-    const [color, setColor] = useState('green');
+  const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState('green');
   return (
-    <div className='h-screen bg-white flex items-center justify-center'>
-      <HashLoader color={color} loading={loading} cssOverride={override} size={100} />
+    <div className="h-screen bg-white flex items-center justify-center">
+      <HashLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={100}
+      />
     </div>
   );
 };

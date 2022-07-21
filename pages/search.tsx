@@ -29,21 +29,18 @@ const Search: NextPageWithLayout = () => {
 
   return (
     <div className="max-h-screen max-w-screen bg-white h-screen flex">
-      <div className='w-[36rem]'>Search results</div>
-        <Wrapper
-          apiKey="AIzaSyBy3p7-C-8TZ7t26xFQ55YTQ99jQPWlXgI"
-          render={render}
+      <div className="w-[36rem]">Search results</div>
+      <Wrapper apiKey="AIzaSyBy3p7-C-8TZ7t26xFQ55YTQ99jQPWlXgI" render={render}>
+        <Map
+          center={center}
+          zoom={zoom}
+          style={{ flexGrow: '1', height: '100%' }}
         >
-          <Map
-            center={center}
-            zoom={zoom}
-            style={{ flexGrow: '1', height: '100%' }}
-          >
-            {clicks.map((latLng, i) => (
-              <Marker key={i} position={latLng} />
-            ))}
-          </Map>
-        </Wrapper>
+          {clicks.map((latLng, i) => (
+            <Marker key={i} position={latLng} />
+          ))}
+        </Map>
+      </Wrapper>
     </div>
   );
 };

@@ -17,7 +17,7 @@ export interface ISidebarLayout {
 }
 
 const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
-  const {user} = useUser();
+  const { user } = useUser();
   return (
     <>
       <div className="h-screen flex">

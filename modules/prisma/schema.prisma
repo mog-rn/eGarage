@@ -7,16 +7,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
+model User {
   user_id    Int       @id @default(autoincrement())
   firstname  String?   @db.VarChar
   lastname   String?   @db.VarChar 
-  email      String?   @unique @db.VarChar
+  email      String?   @unique @db.VarChar(255)
   password   String?   @db.VarChar
   profileimg String?   @db.VarChar
   role       Role      @default(AUTOMOBILE_USER)
   created_at DateTime? @default(now()) @db.Timestamptz(6)
-  garages    garages[]
+  garages    Garage[]
+
+  @@map("users")
 }
 
 enum Role {
@@ -25,7 +27,7 @@ enum Role {
   GARAGE_OWNER
 }
 
-model garages {
+model Garage {
   garage_id          Int       @id @default(autoincrement())
   garage_name        String?   @db.VarChar
   garage_services    String?   @db.VarChar
@@ -37,7 +39,9 @@ model garages {
   time_close         DateTime? @db.Time()
   garage_image       String?   @db.VarChar
   garage_description String?   @db.VarChar
-  added_by           Users?    @relation(fields: [added_by_id], references: [user_id])
+  added_by           User?    @relation(fields: [added_by_id], references: [user_id])
   added_by_id        Int?
   created_at         DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@map("garages")
 }

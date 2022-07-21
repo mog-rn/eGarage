@@ -91,7 +91,9 @@ export const CreateGarageMutation = extendType({
 
       async resolve(_parent, args, ctx) {
         if (!ctx.user) {
-          throw new Error('You must be logged in as an Admin or Garage Owner to perform this action.');
+          throw new Error(
+            'You must be logged in as an Admin or Garage Owner to perform this action.'
+          );
         }
 
         const newGarage = {
@@ -106,11 +108,11 @@ export const CreateGarageMutation = extendType({
           garage_image: args.garage_image,
           garage_description: args.garage_description,
         };
-        
+
         return await ctx.prisma.garages.create({
           data: newGarage,
         });
-      }
+      },
     });
-  }
-})
+  },
+});

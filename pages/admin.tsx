@@ -125,9 +125,9 @@ const Admin = () => {
 
   return (
     <>
-    <Head>
-      <title>eGarage | Admin</title>
-    </Head>
+      <Head>
+        <title>eGarage | Admin</title>
+      </Head>
       <div className="flex flex-col space-y-5 bg-white h-auto items-center p-5">
         <Toaster />
         <h1 className="text-2xl font-bold">Create a new Garage</h1>
@@ -217,12 +217,12 @@ const Admin = () => {
           </div>
           {loading ? (
             <>Creating</>
-          ): (
+          ) : (
             <div>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Create Garage
-            </button>
-          </div>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Create Garage
+              </button>
+            </div>
           )}
         </form>
       </div>

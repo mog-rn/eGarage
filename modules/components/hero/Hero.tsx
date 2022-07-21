@@ -6,8 +6,13 @@ export interface IHero {}
 const Hero: React.FC<IHero> = () => {
   return (
     <div className="relative h-screen w-full">
-      <Image src="/garage.jpeg" layout="fill" priority={true} objectFit="contain" />
-      <div className='absolute inset-0 h-full bg-transparent from-black/80 bg-opacity-10 bg-gradient-to-r' />
+      <Image
+        src="/garage.jpeg"
+        layout="fill"
+        priority={true}
+        objectFit="contain"
+      />
+      <div className="absolute inset-0 h-full bg-transparent from-black/80 bg-opacity-10 bg-gradient-to-r" />
       <div className="relative mx-auto w-[80vw] z-10">
         <p className="flex justify-center flex-col text-white text-[50px] pt-48 pb-5  font-bold">
           Discover more than <br />
@@ -21,7 +26,7 @@ const Hero: React.FC<IHero> = () => {
         </p>
         {/* <SearchBar /> */}
         {/* <div className="pt-10 mx-auto"> */}
-          {/* <Features /> */}
+        {/* <Features /> */}
         {/* </div> */}
       </div>
     </div>

@@ -11,7 +11,14 @@ const Loading = () => {
   const [loading, setLoading] = useState(true);
   const [color, setColor] = useState('#fff');
 
-  return <BeatLoader color={color} loading={loading} cssOverride={override} size={5} />
+  return (
+    <BeatLoader
+      color={color}
+      loading={loading}
+      cssOverride={override}
+      size={5}
+    />
+  );
 };
 
 export default Loading;

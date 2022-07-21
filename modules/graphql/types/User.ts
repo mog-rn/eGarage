@@ -31,7 +31,7 @@ const Role = enumType({
   members: ['ADMIN', 'AUTOMOBILE_USER', 'GARAGE_OWNER'],
 });
 
-export const DateTime = asNexusMethod(GraphQLDateTime, 'date')
+export const DateTime = asNexusMethod(GraphQLDateTime, 'date');
 
 export const UserQuery = extendType({
   type: 'Query',

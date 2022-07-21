@@ -10,4 +10,4 @@ export default FAQs;
 
 FAQs.getLayout = (page) => {
   return <SidebarLayout>{page}</SidebarLayout>;
-}
+};

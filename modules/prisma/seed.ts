@@ -1,23 +1,7 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../lib/prisma';
 
-const prisma = new PrismaClient();
+(async () => {
+  await prisma.users.deleteMany();
+})();
 
-async function main() {
-  await prisma.users.create({
-    data: {
-      firstname: 'Admin',
-      email: 'admin@gmail.com',
-      password: 'admin',
-      role: 'ADMIN',
-    },
-  });
-
-  main()
-    .catch((e) => {
-      console.error(e);
-      process.exit(1);
-    })
-    .finally(() => {
-      prisma.$disconnect();
-    });
-}
+export {};
