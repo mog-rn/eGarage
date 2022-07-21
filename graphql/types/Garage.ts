@@ -1,4 +1,4 @@
-import { objectType, extendType } from 'nexus';
+import { objectType, extendType, nonNull, stringArg } from 'nexus';
 import { User } from './User';
 
 export const Garage = objectType({
@@ -70,3 +70,47 @@ export const Response = objectType({
     });
   },
 });
+
+export const CreateGarageMutation = extendType({
+  type: 'Mutation',
+  definition(t) {
+    t.nonNull.field('createGarage', {
+      type: Garage,
+      args: {
+        garage_name: nonNull(stringArg()),
+        garage_services: nonNull(stringArg()),
+        garage_location: nonNull(stringArg()),
+        garage_phone: nonNull(stringArg()),
+        garage_email: nonNull(stringArg()),
+        garage_website: nonNull(stringArg()),
+        time_open: nonNull(stringArg()),
+        time_close: nonNull(stringArg()),
+        garage_image: nonNull(stringArg()),
+        garage_description: nonNull(stringArg()),
+      },
+
+      async resolve(_parent, args, ctx) {
+        if (!ctx.user) {
+          throw new Error('You must be logged in as an Admin or Garage Owner to perform this action.');
+        }
+
+        const newGarage = {
+          garage_name: args.garage_name,
+          garage_services: args.garage_services,
+          garage_location: args.garage_location,
+          garage_phone: args.garage_phone,
+          garage_email: args.garage_email,
+          garage_website: args.garage_website,
+          time_open: args.time_open,
+          time_close: args.time_close,
+          garage_image: args.garage_image,
+          garage_description: args.garage_description,
+        };
+        
+        return await ctx.prisma.garages.create({
+          data: newGarage,
+        });
+      }
+    });
+  }
+})

@@ -28,6 +28,10 @@ type Garage {
   users: [User]
 }
 
+type Mutation {
+  createGarage(garage_description: String!, garage_email: String!, garage_image: String!, garage_location: String!, garage_name: String!, garage_phone: String!, garage_services: String!, garage_website: String!, time_close: String!, time_open: String!): Garage!
+}
+
 type PageInfo {
   endCursor: String
   hasNextPage: Boolean
