@@ -1,8 +1,8 @@
 import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import React, { useEffect, useState } from 'react';
-import Map from '../components/map/Map';
-import Marker from '../components/map/marker/Marker';
-import SidebarLayout from '../components/layouts/sidebar/SidebarLayout';
+import Map from '../modules/components/map/Map';
+import Marker from '../modules/components/map/marker/Marker';
+import SidebarLayout from '../modules/components/layouts/sidebar/SidebarLayout';
 import { NextPageWithLayout } from './page';
 
 const render = (status: Status) => {

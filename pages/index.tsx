@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import GarageCard from '../components/cards/garageCard/GarageCard';
-import TestimonialsCard from '../components/cards/testimonialCard/TestimonialsCard';
-import Hero from '../components/hero/Hero';
-import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
+import GarageCard from '../modules/components/cards/garageCard/GarageCard';
+import TestimonialsCard from '../modules/components/cards/testimonialCard/TestimonialsCard';
+import Hero from '../modules/components/hero/Hero';
+import PrimaryLayout from '../modules/components/layouts/primary/PrimaryLayout';
 import { NextPageWithLayout } from './page';
 
 const Home: NextPageWithLayout = () => {

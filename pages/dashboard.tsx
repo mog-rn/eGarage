@@ -1,7 +1,7 @@
 import React from 'react';
-import DashboardBanner from '../components/dashboard/dashboardBanner/DashboardBanner';
-import DashboardSearch from '../components/dashboard/dashboardSearch/DashboardSearch';
-import SidebarLayout from '../components/layouts/sidebar/SidebarLayout';
+import DashboardBanner from '../modules/components/dashboard/dashboardBanner/DashboardBanner';
+import DashboardSearch from '../modules/components/dashboard/dashboardSearch/DashboardSearch';
+import SidebarLayout from '../modules/components/layouts/sidebar/SidebarLayout';
 import { NextPageWithLayout } from './page';
 
 const Dashboard: NextPageWithLayout = () => {

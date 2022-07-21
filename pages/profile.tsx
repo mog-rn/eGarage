@@ -1,5 +1,5 @@
 import React from 'react';
-import SidebarLayout from '../components/layouts/sidebar/SidebarLayout';
+import SidebarLayout from '../modules/components/layouts/sidebar/SidebarLayout';
 import { NextPageWithLayout } from './page';
 
 const Profile: NextPageWithLayout = () => {
