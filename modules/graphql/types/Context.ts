@@ -1,7 +1,7 @@
 import { Claims, getSession } from "@auth0/nextjs-auth0";
 import { PrismaClient } from "@prisma/client";
 import prisma from "../lib/prisma";
-import { decodeAuthHeader, AuthTokenPayload } from "./utils/auth";
+import { decodeAuthHeader, AuthTokenPayload } from "../utils/auth";
 
 
 export type Context = {
