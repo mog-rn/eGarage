@@ -1,6 +1,7 @@
-import { Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
+import { LoginInput } from '../modules/components/forms/LoginInput';
 
 const Authentication = () => {
   return (
@@ -34,9 +35,11 @@ const Authentication = () => {
         }}
       >
         <div className="flex items-center justify-center bg-white h-screen">
-          <div className="container border w-96 h-96 ">
-            <h1>Register</h1>
-          </div>
+          <Form className="container border w-auto h-auto flex flex-col space-y-10 justify-center shadow-lg rounded-lg p-5">
+            <h1 className='font-bold text-2xl'>Register</h1>
+            <LoginInput />
+            <button className='bg-green px-5 py-3 rounded-xl text-white'>Get Started</button>
+          </Form>
         </div>
       </Formik>
     </>
