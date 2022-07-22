@@ -1,17 +1,14 @@
-import { useMemo } from 'react';
 import {
   ApolloClient,
+  from,
   HttpLink,
   InMemoryCache,
-  from,
   NormalizedCacheObject,
-  ApolloLink,
 } from '@apollo/client';
-import { onError } from '@apollo/client/link/error';
-import { concatPagination } from '@apollo/client/utilities';
+import { SchemaLink } from '@apollo/client/link/schema';
 import merge from 'deepmerge';
 import isEqual from 'lodash/isEqual';
-import { SchemaLink } from '@apollo/client/link/schema';
+import { useMemo } from 'react';
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__';
 
@@ -19,33 +16,22 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 type SchemaContext =
   | SchemaLink.ResolverContext
-  | SchemaLink.ResolverContextFunction
-  | undefined;
+  | SchemaLink.ResolverContextFunction;
 
 function createIsomorphicLink(ctx?: SchemaContext) {
   if (typeof window === 'undefined') {
-    if (!ctx) {
-      throw new Error('Context not passed in');
-    }
     const { schema } = require('../modules/graphql/schema');
-    return new SchemaLink({ schema, context: ctx });
+    return new SchemaLink({
+      schema,
+      context: ctx,
+    });
   }
   const httpLink = new HttpLink({
-    uri: 'http://localhost:3000/api/graphql', // Server URL (must be absolute)
-    credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
+    uri: 'http://localhost:3000/api/graphql',
+    credentials: 'same-origin',
   });
   return from([httpLink]);
 }
-
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) =>
-      console.log(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      )
-    );
-  if (networkError) console.log(`[Network error]: ${networkError}`);
-});
 
 function createApolloClient(ctx?: SchemaContext) {
   return new ApolloClient({
@@ -60,7 +46,7 @@ interface InitApollo {
   ctx?: SchemaContext;
 }
 
-export function initializeApollo({ initialState, ctx }: InitApollo) {
+export function initializeApollo({ ctx, initialState }: InitApollo) {
   const _apolloClient = apolloClient ?? createApolloClient(ctx || undefined);
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
@@ -95,9 +81,7 @@ export function addApolloState(
   client: ApolloClient<NormalizedCacheObject>,
   pageProps: { props: any }
 ) {
-  if (pageProps?.props) {
-    pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract();
-  }
+  pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract();
 
   return pageProps;
 }
