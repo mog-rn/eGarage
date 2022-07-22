@@ -1,11 +1,14 @@
-import { Form, Formik } from 'formik';
 import React from 'react';
+import { Form, Formik } from 'formik';
+import { useRouter } from 'next/router';
 import * as Yup from 'yup';
-import { LoginInput } from '../modules/components/forms/LoginInput';
+import { LoginInput } from '../forms/LoginInput';
 
-const Authentication = () => {
+const Register = () => {
+  const router = useRouter();
+
   return (
-    <>
+    <div>
       <Formik
         initialValues={{
           firstname: '',
@@ -36,14 +39,38 @@ const Authentication = () => {
       >
         <div className="flex items-center justify-center bg-white h-screen">
           <Form className="container border w-auto h-auto flex flex-col space-y-10 justify-center shadow-lg rounded-lg p-5">
-            <h1 className='font-bold text-2xl'>Register</h1>
-            <LoginInput />
-            <button className='bg-green px-5 py-3 rounded-xl text-white'>Get Started</button>
+            <h1 className="font-bold text-2xl">Register</h1>
+            <div className="flex">
+              <LoginInput name="firstname" label="Firstname" />
+              <LoginInput name="lastname" label="Lastname" />
+            </div>
+            <LoginInput name="email" label="Email" />
+            <LoginInput name="password" label="Password" type="password" />
+            <LoginInput
+              name="confirmPassword"
+              label="Confirm Password"
+              type="password"
+            />
+            <LoginInput name="role" label="Role" />
+            <div className="space-x-3 flex">
+              <button
+                onClick={() => router.push('/login')}
+                className="w-1/2 border-green text-green border-2 rounded-lg py-2"
+              >
+                Login
+              </button>
+              <button
+                type="submit"
+                className="w-1/2 bg-green rounded-lg text-white py-2 border-2 border-transparent"
+              >
+                Sign Up
+              </button>
+            </div>
           </Form>
         </div>
       </Formik>
-    </>
+    </div>
   );
 };
 
-export default Authentication;
+export default Register;

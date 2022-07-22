@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, FieldInputProps, Form, useField } from 'formik';
 import React from 'react';
 
-type Props = { name: string; label: string };
+type Props = { name: string; label: string; type?: string };
 
 export const LoginInput: React.FC<Props> = ({ name, label, ...props }) => {
   const [field, meta] = useField({ name });
