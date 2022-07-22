@@ -46,7 +46,7 @@ const Login = () => {
                 back
               </button>
               <button
-                onClick={() => router.push('/')}
+                onClick={() => router.push('')}
                 type="submit"
                 className="w-1/2 bg-green rounded-lg text-white py-2 border-2 border-transparent"
               >
