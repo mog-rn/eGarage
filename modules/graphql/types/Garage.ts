@@ -35,7 +35,7 @@ export const GarageQuery = extendType({
     t.nonNull.list.field('garages', {
       type: Garage,
       async resolve(_parent: any, _args: any, ctx: any) {
-        return await ctx.prisma.garages.findMany();
+        return await ctx.prisma.garage.findMany();
       }, // getGarages
     });
   },

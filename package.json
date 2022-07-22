@@ -11,20 +11,24 @@
     "type": "module"
   },
   "scripts": {
+    "predev": "yarn run generate",
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
+    "prebuild":"yarn run generate",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write .",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@auth0/nextjs-auth0": "^1.9.1",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@googlemaps/typescript-guards": "^2.0.1",
+    "@graphql-codegen/cli": "^2.9.1",
     "@prisma/client": "^4.0.0",
     "@react-google-maps/api": "^2.12.0",
     "@types/lodash": "^4.14.182",
@@ -92,7 +96,11 @@
     "sass": "^1.53.0",
     "tailwindcss": "^3.1.2",
     "ts-node": "^10.9.1",
-    "typescript": "4.7.2"
+    "typescript": "4.7.2",
+    "@graphql-codegen/typescript": "2.7.2",
+    "@graphql-codegen/typescript-react-apollo": "3.3.2",
+    "@graphql-codegen/typescript-operations": "2.5.2",
+    "@graphql-codegen/cli": "2.9.1"
   },
   "resolutions": {
     "webpack": "^5"
