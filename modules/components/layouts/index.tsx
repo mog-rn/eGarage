@@ -11,8 +11,8 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({children}) => {
   <Head>
     <title>eGarage | simplifying your next garage search</title>
   </Head>
-
-  <div>
+{/* min-h-screen */}
+  <div className=" flex flex-col">
     <Navbar />
   </div>
   <main>{children}</main>
