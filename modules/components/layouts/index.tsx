@@ -2,16 +2,14 @@ import Head from "next/head";
 import React, { useState } from "react";
 import AuthModal from "../auth/AuthModal";
 import Link from "next/link";
+import {  useRouter } from "next/router";
 
 interface IPrimaryLayout {
   children: React.ReactNode;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => setShowModal(true);
-  const closeModal = () => setShowModal(false);
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -39,7 +37,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
         <div>
           <button
             type="button"
-            onClick={openModal}
+            onClick={() => router.push("/auth")}
             className="bg-primary text-white px-4 py-2 rounded-xl"
           >
             Get started
