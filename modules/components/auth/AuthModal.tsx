@@ -5,6 +5,7 @@ import { MailOpenIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import Image from "next/image";
 import { Formik, Form, Field } from "formik";
+import { toast } from "react-hot-toast";
 
 const signInSchema = Yup.object().shape({
   email: Yup.string()
@@ -53,9 +54,20 @@ const signInSchema = Yup.object().shape({
 // };
 
 const AuthModal = ({ show = false, onClose = () => {} }) => {
-  const signInWithEmail = () => {};
   const [showSignIn, setShowSignIn] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+
+  const signInWithEmail = async ({ email }) => {
+    let toastId;
+    try {
+    } catch (e) {
+      toast.error("unable to sign in", { id: toastId });
+    } finally {
+      setDisabled(false);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-between">
       <h1 className="text-2xl font-medium text-primary ">
@@ -120,6 +132,7 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
                     <button
                       onClick={() => {
                         setShowSignIn(false);
+                        signInWithEmail
                       }}
                     >
                       Sign up
