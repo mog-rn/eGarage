@@ -54,9 +54,10 @@ const signInSchema = Yup.object().shape({
 
 const AuthModal = ({ show = false, onClose = () => {} }) => {
   const signInWithEmail = () => {};
-  const [showSignIn, setShowsignIn] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center justify-between">
       <h1 className="text-2xl font-medium text-primary ">
         <Link href="/">eGarage</Link>
       </h1>
@@ -65,7 +66,12 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
           <h3 className="font-medium">Sign up</h3>
           <p>Please create an account to get a personalized experience.</p>
         </div>
-      ) : null}
+      ) : (
+        <div className="text-center">
+          <h3 className="font-medium">Sign in</h3>
+          <p>Welcome back to the site. Login to continue using the site...</p>
+        </div>
+      )}
       {/* Signin with google */}
       <div className="mt-10">
         <button
@@ -76,6 +82,13 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
           Sign {showSignIn ? "in" : "up"} with Google
         </button>
       </div>
+      <div className="flex items-center py-4">
+        <div className="flex-grow h-px bg-gray-400"></div>
+        <span className="flex-shrink text-xl text-gray-500 px-4 italic font-light">
+          or
+        </span>
+        <div className="flex-grow h-px bg-gray-400"></div>
+      </div>
       {/* Sign in with email */}
       <div className="mt-10">
         <Formik
@@ -83,14 +96,51 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
           validationSchema={signInSchema}
           onSubmit={signInWithEmail}
         >
-          <Form className="mt-4">
-            <input
-              name="email"
-              type="email"
-              placeholder="elon@spacex.com"
-              className="border px-10 py-2 rounded-lg"
-            />
-          </Form>
+          {({ isSubmiting, resetForm, isValid, values }) => (
+            <Form className="flex flex-col space-y-3">
+              <input
+                name="email"
+                type="email"
+                placeholder="elon@spacex.com"
+                className="border px-10 py-2 rounded-lg"
+              />
+              <button
+                className="border-transparent py-2 rounded-lg bg-primary text-white"
+                type="submit"
+              >
+                {isSubmitting
+                  ? "Loading..."
+                  : `Sign ${showSignIn ? "in" : "up"}`}
+              </button>
+
+              <p className="text-center text-sm tet-gray-500">
+                {showSignIn ? (
+                  <>
+                    Don&apos;t have an account?{" "}
+                    <button
+                      onClick={() => {
+                        setShowSignIn(false);
+                      }}
+                    >
+                      Sign up
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    Already have an account?{" "}
+                    <button
+                      onClick={() => {
+                        setShowSignIn(true);
+                        resetForm();
+                      }}
+                    >
+                      Login
+                    </button>
+                  </>
+                )}
+              </p>
+            </Form>
+          )}
         </Formik>
       </div>
     </div>
