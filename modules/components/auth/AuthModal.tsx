@@ -112,7 +112,7 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
         <div className="flex-grow h-px bg-gray-400"></div>
       </div>
       {/* Sign in with email */}
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <Formik
           initialValues={{ email: "" }}
           validationSchema={signInSchema}
@@ -165,7 +165,7 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
             </Form>
           )}
         </Formik>
-      </div>
+      </div> */}
     </div>
   );
 };

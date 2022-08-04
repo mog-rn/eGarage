@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import TopNavBar from "../navigation/TopNavBar";
+import SideBar from "../navigation/SideBar";
 
 interface IPrimaryLayout {
   children: React.ReactNode;
@@ -13,23 +14,30 @@ interface IPrimaryLayout {
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
   const { data: session, status } = useSession();
 
-  const user = session?.user
+  const user = session?.user;
 
-  const isloadingUser = status === "loading"
-
+  const isloadingUser = status === "loading";
 
   return (
-    <>
+    <div>
       <Head>
         <title>eGarage | simplifying your next garage search</title>
       </Head>
-      {/* min-h-screen */}
-      <TopNavBar />
-      <main>
-        {children}
-        {/* <AuthModal show={showModal} onClose={closeModal} /> */}
-      </main>
-    </>
+
+      {isloadingUser ? (
+        <div />
+      ) : user ? (
+        <div className="flex p-5 space-x-4 min-h-screen bg-secondary">
+          <SideBar />
+          <main>{children}</main>
+        </div>
+      ) : (
+        <>
+          <TopNavBar />
+          <main>{children}</main>
+        </>
+      )}
+    </div>
   );
 };
 
