@@ -15,6 +15,8 @@ import {
 const SideBar = () => {
   const { data: session, status } = useSession();
 
+  const [currentLink, setCurrentLink] = React.useState(1);
+
   const user = session?.user;
 
   return (
@@ -34,20 +36,21 @@ const SideBar = () => {
           <div>
             <ul className="space-y-3">
               <li
-                className="flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
-                        hover:scale-105 transform ease-out duration-300 p-2"
-              >
+                className={`${currentLink === 1 ? "active" : "none"} flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
+                        hover:scale-105 transform ease-out duration-300 p-2`}
+                onClick={() => setCurrentLink(1)}
+             >
                 <ViewGridIcon className="w-6 h-6" />
                 <Link href="/" className="">
                   Dashboard
                 </Link>
               </li>
               <li
-                className="flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
-                        hover:scale-105 transform ease-out duration-300 p-2"
+                className={`${currentLink === 2 ? "active": "none"} flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
+                        hover:scale-105 transform ease-out duration-300 p-2`}
               >
                 <SearchIcon className="w-6 h-6" />
-                <Link href="/" className="">
+                <Link href="/search" className="">
                   Search
                 </Link>
               </li>
