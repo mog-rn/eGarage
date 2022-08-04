@@ -65,7 +65,7 @@ const SideBar = () => {
                 onClick={() => setCurrentLink(3)}
               >
                 <SparklesIcon className="w-6 h-6" />
-                <Link href="/" className="">
+                <Link href="/review" className="">
                   Reviews
                 </Link>
               </li>
@@ -75,7 +75,7 @@ const SideBar = () => {
                         hover:scale-105 transform ease-out duration-300 p-2"
               >
                 <ChatAlt2Icon className="w-6 h-6" />
-                <Link href="/" className="">
+                <Link href="/faq" className="">
                   FAQs
                 </Link>
               </li>
@@ -85,7 +85,7 @@ const SideBar = () => {
                         hover:scale-105 transform ease-out duration-300 p-2"
               >
                 <UserCircleIcon className="w-6 h-6" />
-                <Link href="/" className="">
+                <Link href="/profile" className="">
                   Account
                 </Link>
               </li>
