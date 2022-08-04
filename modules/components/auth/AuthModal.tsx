@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Formik, Form, Field } from "formik";
 import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
 
 const signInSchema = Yup.object().shape({
   email: Yup.string()
@@ -58,7 +59,7 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
-  const signInWithEmail = async ({ email }) => {
+  const signInWithEmail = async ({}) => {
     let toastId;
     try {
     } catch (e) {
@@ -67,6 +68,14 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
       setDisabled(false);
     }
   };
+
+  const signInWithGoogle = () => {
+    setDisabled(true);
+    toast.loading('Signing in with Google...')
+    signIn("google", {
+      callbackUrl: window.location.origin,
+    })
+  }
 
   return (
     <div className="flex flex-col items-center justify-between">
@@ -89,6 +98,7 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
         <button
           className="w-full border flex items-center px-10 py-2 rounded-lg"
           // disabled={disabled}
+          onClick={signInWithGoogle}
         >
           <Image src="/google.svg" width={32} height={32} alt="google" />
           Sign {showSignIn ? "in" : "up"} with Google
@@ -108,7 +118,7 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
           validationSchema={signInSchema}
           onSubmit={signInWithEmail}
         >
-          {({ isSubmiting, resetForm, isValid, values }) => (
+          {({ resetForm, isValid, values }) => (
             <Form className="flex flex-col space-y-3">
               <input
                 name="email"
@@ -132,7 +142,7 @@ const AuthModal = ({ show = false, onClose = () => {} }) => {
                     <button
                       onClick={() => {
                         setShowSignIn(false);
-                        signInWithEmail
+                        signInWithEmail;
                       }}
                     >
                       Sign up
