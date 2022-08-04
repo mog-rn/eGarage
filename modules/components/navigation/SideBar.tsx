@@ -36,18 +36,23 @@ const SideBar = () => {
           <div>
             <ul className="space-y-3">
               <li
-                className={`${currentLink === 1 ? "active" : "none"} flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
+                className={`${
+                  currentLink === 1 ? "active" : "none"
+                } flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
                         hover:scale-105 transform ease-out duration-300 p-2`}
                 onClick={() => setCurrentLink(1)}
-             >
+              >
                 <ViewGridIcon className="w-6 h-6" />
                 <Link href="/" className="">
                   Dashboard
                 </Link>
               </li>
               <li
-                className={`${currentLink === 2 ? "active": "none"} flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
+                className={`${
+                  currentLink === 2 ? "active" : "none"
+                } flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
                         hover:scale-105 transform ease-out duration-300 p-2`}
+                onClick={() => setCurrentLink(2)}
               >
                 <SearchIcon className="w-6 h-6" />
                 <Link href="/search" className="">
@@ -57,6 +62,7 @@ const SideBar = () => {
               <li
                 className="flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
                         hover:scale-105 transform ease-out duration-300 p-2"
+                onClick={() => setCurrentLink(3)}
               >
                 <SparklesIcon className="w-6 h-6" />
                 <Link href="/" className="">
@@ -64,6 +70,7 @@ const SideBar = () => {
                 </Link>
               </li>
               <li
+                onClick={() => setCurrentLink(4)}
                 className="flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
                         hover:scale-105 transform ease-out duration-300 p-2"
               >
@@ -73,6 +80,7 @@ const SideBar = () => {
                 </Link>
               </li>
               <li
+              onClick={() => setCurrentLink(5)}
                 className="flex items-center space-x-3 text-grey w-full border-transparent bg-white rounded-xl 
                         hover:scale-105 transform ease-out duration-300 p-2"
               >
@@ -83,7 +91,15 @@ const SideBar = () => {
               </li>
             </ul>
           </div>
-<div className="absolute bottom-5 p-3"><button onClick={() => signOut} className="flex items-center text-grey"><LogoutIcon className="mr-3 h-6 w-6" />Logout</button></div>
+          <div className="absolute bottom-5 p-3">
+            <button
+              onClick={() => signOut}
+              className="flex items-center text-grey"
+            >
+              <LogoutIcon className="mr-3 h-6 w-6" />
+              Logout
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -29,7 +29,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
       ) : user ? (
         <div className="flex p-5 space-x-4 min-h-screen bg-secondary">
           <SideBar />
-          <main>{children}</main>
+          <main className="p-10">{children}</main>
         </div>
       ) : (
         <>
