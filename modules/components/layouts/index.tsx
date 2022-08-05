@@ -26,7 +26,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
 
       {isloadingUser ? (
         <div />
-      ) : user ? (
+      ) : user && session ? (
         <div className="flex p-5 space-x-4 min-h-screen bg-secondary">
           <SideBar />
           <main className="p-10">{children}</main>

@@ -8,18 +8,18 @@ datasource db {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -42,6 +42,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  garages       Garage[]
 }
 
 model VerificationToken {
@@ -50,4 +51,23 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Garage {
+  id                 String   @id @default(cuid())
+  garage_name        String
+  garage_services    String
+  garage_location    String
+  garage_description String
+  garage_image       String
+  garage_phone       String
+  garage_email       String
+  garage_website     String
+  time_open          DateTime @db.Time()
+  time_close         DateTime @db.Time()
+  garage_owner       User     @relation(fields: [addedBy], references: [id])
+  addedBy            String
+  createdAt          DateTime @default(now())
+
+  @@map("garages")
 }
