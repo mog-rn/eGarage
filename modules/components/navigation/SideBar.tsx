@@ -93,7 +93,7 @@ const SideBar = () => {
           </div>
           <div className="absolute bottom-5 p-3">
             <button
-              onClick={() => signOut}
+              onClick={() => signOut()}
               className="flex items-center text-grey"
             >
               <LogoutIcon className="mr-3 h-6 w-6" />
