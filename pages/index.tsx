@@ -31,7 +31,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        ls
+        <h1 className='text-2xl font-semibold'>Welcome to <span className='text-primary text-4xl font-medium'>eGarage</span></h1>
       </Layout>
     </div>
   )
