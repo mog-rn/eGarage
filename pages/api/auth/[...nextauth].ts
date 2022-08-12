@@ -7,8 +7,8 @@ export default NextAuth({
     adapter: PrismaAdapter(prisma),
     providers: [
         GoogleProvider({
-            clientId: `${process.env.GOOGLE_AUTH_ID}`,
-            clientSecret: `${process.env.GOOGLE_AUTH_SECRET}`,
+            clientId: process.env.GOOGLE_AUTH_ID,
+            clientSecret: process.env.GOOGLE_AUTH_SECRET,
         })
     ],
     secret: process.env.NEXTAUTH_SECRET,
