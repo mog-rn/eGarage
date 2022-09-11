@@ -1,2 +1,2 @@
 // default exports from the components folder
-module.exports = {} 
+export {default as LoginForm} from "./LoginForm"
