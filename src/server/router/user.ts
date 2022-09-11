@@ -1,3 +1,4 @@
+import { requestOtpSchema } from './../../schema/user.schema';
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime"
 import { createUserOutputSchema, createUserSchema } from "../../schema/user.schema"
 import { createRouter } from "./context"
@@ -34,5 +35,38 @@ export const userRouter = createRouter()
                     message: 'Something went wrong'
                 })
             }
+        }
+    })
+    .mutation('request-otp', {
+        input: requestOtpSchema,
+        async resolve({ ctx, input }) {
+            const {email, redirect} = input
+
+            const user = await ctx.prisma.user.findUnique({
+                where: {
+                    email
+                }
+            })
+
+            if(!user) {
+                throw new trpc.TRPCError({
+                    code: 'NOT_FOUND',
+                    message: 'User not found'
+                })
+            }
+
+            const token = await ctx.prisma.loginToken.create({
+                data: {
+                    user: {
+                        connect: {
+                            id: user.id
+                        }
+                    }
+                }
+            })
+
+            // send email to user
+
+            return true
         }
     })
