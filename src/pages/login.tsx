@@ -5,6 +5,11 @@ import { useForm } from "react-hook-form";
 import { CreateUserInput } from "../schema/user.schema";
 import { trpc } from "../utils/trpc";
 
+
+function VerifyToken() {
+    return <p>Verifying...</p>
+}
+
 function LoginPage() {
 
     const [success, setSuccess] = useState(false)
@@ -18,6 +23,10 @@ function LoginPage() {
            setSuccess(true)
          }
     })
+
+    const hash = router.asPath.split('#token=')[1]
+
+    if (hash) {}
 
     function onSubmit(values: CreateUserInput) {
         mutate(values)

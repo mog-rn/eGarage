@@ -22,12 +22,11 @@ export async function sendLoginEmail({
   });
 
   const info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <j.doe@example.com>',
+    from: '"Jane Doe" <j.doe@example.com>',
     to: email,
-    subject: "✔Login to your account",
-    text: "To login to your account, click the link below",
-    html: `<ahref="${url}/login#token=${token}">HERE</a>`,
-  });
+    subject: 'Login to your account',
+    html: `Login by clicking <a href="${url}/login#token=${token}">HERE</a>`,
+  })
 
   console.log(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
   

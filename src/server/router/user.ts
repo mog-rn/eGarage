@@ -1,4 +1,4 @@
-import { requestOtpSchema } from "./../../schema/user.schema";
+import { requestOtpSchema, verifyOtpSchema } from "./../../schema/user.schema";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 import {
   createUserOutputSchema,
@@ -8,7 +8,7 @@ import { createRouter } from "./context";
 import * as trpc from "@trpc/server";
 import { sendLoginEmail } from "../../utils/mailer";
 import { url } from "../../constants";
-import { encode } from "../../utils/base64";
+import { decode, encode } from "../../utils/base64";
 
 
 export const userRouter = createRouter()
@@ -81,4 +81,31 @@ export const userRouter = createRouter()
 
       return true;
     },
-  });
+  })
+  .query("verify-otp", {
+    input: verifyOtpSchema,
+    async resolve({ ctx, input }) {
+        const decoded = decode(input.hash).split(":");
+
+        const [id, email] = decoded;
+
+        const token = await ctx.prisma.loginToken.findFirst({
+            where: {
+                id,
+                user: {
+                    email,
+                }
+            },
+            include: {
+                user: true
+            }
+        })
+
+        if(!token) {
+            throw new trpc.TRPCError({
+                code: 'FORBIDDEN',
+                message: 'Invalid Token'
+            })
+        }
+    }
+  })
