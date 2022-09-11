@@ -5,9 +5,10 @@ export const createUserSchema = z.object({
     email: z.string().email()
 })
 
-export const createUSerOutputSchema = z.object({
+export const createUserOutputSchema = z.object({
+    id: z.string(),
     name: z.string(),
-    email: z.string().email()
+    email: z.string().email(),    
 })
 
 

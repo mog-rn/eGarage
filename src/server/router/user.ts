@@ -1,12 +1,12 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime"
-import { createUSerOutputSchema, createUserSchema } from "../../schema/user.schema"
+import { createUserOutputSchema, createUserSchema } from "../../schema/user.schema"
 import { createRouter } from "./context"
 import * as trpc from "@trpc/server"
 
 export const userRouter = createRouter()
     .mutation('register-user', {
         input: createUserSchema,
-        output: createUSerOutputSchema,
+        output: createUserOutputSchema,
         async resolve({ ctx, input }) {
             const { email, name } = input
 
@@ -18,7 +18,7 @@ export const userRouter = createRouter()
                     }
                 })
 
-                return ctx.session
+                return user
             } catch (e) {
                 if(e instanceof PrismaClientKnownRequestError) {
                     if(e.code === 'P2002') {
