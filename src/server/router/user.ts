@@ -76,7 +76,7 @@ export const userRouter = createRouter()
       sendLoginEmail({
         token: encode(`${token.id}:${user.email}`),
         url: baseUrl,
-        email: user.email,
+        email: user?.email,
       })
 
       return true;

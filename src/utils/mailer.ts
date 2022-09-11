@@ -5,7 +5,7 @@ export async function sendLoginEmail({
   url,
   token,
 }: {
-  email: string
+  email: string | null
   url: string
   token: string
 }) {
