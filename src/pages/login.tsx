@@ -10,21 +10,6 @@ const LoginForm = dynamic(() => import('../components/LoginForm'), {
     ssr: false
 })
 
-function VerifyToken({hash}: {hash: string}) {
-    const router = useRouter()
-    const { data, isLoading } = trpc.useQuery(['users.verify-otp', {
-        hash
-    }])
-
-    if (isLoading) {
-        return <p>Verifying...</p>
-    }
-
-    router.push(data?.redirect.includes('login') ? '/' : data?.redirect || '/')
-
-    return <p>Redirecting...</p>
-}
-
 function LoginPage() {
     return <div>
         <LoginForm />

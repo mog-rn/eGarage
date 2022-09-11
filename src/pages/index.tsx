@@ -1,9 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import { LoginForm } from "../components";
+import { useUserContext } from "../context/user.context";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  
+
+  const user = useUserContext()
+
+  if(!user) {
+    return <LoginForm />
+  }
 
   return (
     <>
@@ -13,7 +21,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="" />
       </Head>
 
-      <h1>Welcome to eGaratge</h1>
+      <Link href="garages/new">Create a garage</Link>
     </>
   );
 };
