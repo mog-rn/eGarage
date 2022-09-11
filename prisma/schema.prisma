@@ -18,6 +18,30 @@ model Example {
     id String @id @default(cuid())
 }
 
+
+// TODO: garage model
+model Garage {
+    id String @id @default(cuid())
+    name String
+    address String
+    city String
+    state String
+    zip String
+    phone String
+    email String
+    website String
+    description String
+    services String
+    hours String
+    image String
+    lat Float
+    lng Float
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("garages")
+}
+
 // Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
@@ -51,8 +75,11 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    createdAt   DateTime @default(now())
     accounts      Account[]
     sessions      Session[]
+
+    @@map("users")
 }
 
 model VerificationToken {

@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "egarage-db",
+            "database": "${workspaceFolder:egarage}/prisma/db.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "WillLuke.nextjs.addTypesOnSave": true,
+    "WillLuke.nextjs.hasPrompted": true
+}
