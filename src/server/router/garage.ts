@@ -19,7 +19,7 @@ export const garageRouter = createRouter()
           ...input,
           user: {
             connect: {
-              id: ctx.user.id,
+              id: ctx.user?.id,
             },
           },
         },
