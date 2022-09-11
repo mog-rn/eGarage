@@ -17,12 +17,12 @@ function LoginPage() {
     // })
 
     function onSubmit(values: CreateUserInput) {
-        mutate(values)
+        // mutate(values)
     }
 
     return <>
         <form onSubmit={handleSubmit(onSubmit)}>
-            {error && error.message}
+            {/* {error && error.message} */}
             <h1>Register</h1>
             <input type="email" placeholder="john.doe@example.com" {...register('email')} />
             <button type="submit">Login</button>
