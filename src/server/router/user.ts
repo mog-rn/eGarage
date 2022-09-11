@@ -15,7 +15,6 @@ import { serialize } from "cookie";
 export const userRouter = createRouter()
   .mutation("register-user", {
     input: createUserSchema,
-    output: createUserOutputSchema,
     async resolve({ ctx, input }) {
       const { email, name } = input;
 
@@ -45,22 +44,22 @@ export const userRouter = createRouter()
       }
     },
   })
-  .mutation('request-otp', {
+  .mutation("request-otp", {
     input: requestOtpSchema,
     async resolve({ input, ctx }) {
-      const { email, redirect } = input
+      const { email, redirect } = input;
 
       const user = await ctx.prisma.user.findUnique({
         where: {
           email,
         },
-      })
+      });
 
       if (!user) {
         throw new trpc.TRPCError({
-          code: 'NOT_FOUND',
-          message: 'User not found',
-        })
+          code: "NOT_FOUND",
+          message: "User not found",
+        });
       }
 
       const token = await ctx.prisma.loginToken.create({
@@ -72,7 +71,7 @@ export const userRouter = createRouter()
             },
           },
         },
-      })
+      });
       // send email to user
       sendLoginEmail({
         token: encode(`${token.id}:${user.email}`),
@@ -80,15 +79,15 @@ export const userRouter = createRouter()
         email: user.email,
       })
 
-      return true
+      return true;
     },
   })
-  .query('verify-otp', {
+  .query("verify-otp", {
     input: verifyOtpSchema,
     async resolve({ input, ctx }) {
-      const decoded = decode(input.hash).split(':')
+      const decoded = decode(input.hash).split(":");
 
-      const [id, email] = decoded
+      const [id, email] = decoded;
 
       const token = await ctx.prisma.loginToken.findFirst({
         where: {
@@ -100,29 +99,29 @@ export const userRouter = createRouter()
         include: {
           user: true,
         },
-      })
+      });
 
       if (!token) {
         throw new trpc.TRPCError({
-          code: 'FORBIDDEN',
-          message: 'Invalid token',
-        })
+          code: "FORBIDDEN",
+          message: "Invalid token",
+        });
       }
 
       const jwt = signJwt({
         email: token.user.email,
         id: token.user.id,
-      })
+      });
 
-      ctx.res.setHeader('Set-Cookie', serialize('token', jwt, { path: '/' }))
+      ctx.res.setHeader("Set-Cookie", serialize("token", jwt, { path: "/" }));
 
       return {
         redirect: token.redirect,
-      }
+      };
     },
   })
-  .query('me', {
+  .query("me", {
     resolve({ ctx }) {
-      return ctx.user
+      return ctx.user;
     },
-  })
+  });
