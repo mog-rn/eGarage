@@ -7,6 +7,9 @@ import {
 import { createRouter } from "./context";
 import * as trpc from "@trpc/server";
 import { sendLoginEmail } from "../../utils/mailer";
+import { url } from "../../constants";
+import { encode } from "../../utils/base64";
+
 
 export const userRouter = createRouter()
   .mutation("register-user", {
@@ -71,8 +74,9 @@ export const userRouter = createRouter()
 
       // send email to user
       await sendLoginEmail({
-        token: "",
-        url: "",
+        token: encode(`${token.id}:${user.email}`),
+        url: url,
+        email: user.email,
       });
 
       return true;
