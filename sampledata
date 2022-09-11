@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cl7xdycae00001esrvoe26r8b",
+    "title": "AutoExpress",
+    "body": "This is the best garage for autospares and stuff",
+    "createdAt": 1662903743404,
+    "updatedAt": 1662903743432,
+    "userId": "cl7xcafya0048fhsrjbqt9287"
+  },
+  {
+    "id": "cl7xeov9x0000wcsrzfkygoxn",
+    "title": "GarageShop",
+    "body": "This is the best autoarge shop yu can ever get",
+    "createdAt": 1662904981077,
+    "updatedAt": 1662904981077,
+    "userId": "cl7x3cyy30000tysrzvreykol"
+  },
+  {
+    "id": "cl7xfowdq0010wcsrfjt9e3mb",
+    "title": "ViewShop",
+    "body": "With the best auto garge tyres",
+    "createdAt": 1662906662126,
+    "updatedAt": 1662906662126,
+    "userId": "cl7x3cyy30000tysrzvreykol"
+  }
+]

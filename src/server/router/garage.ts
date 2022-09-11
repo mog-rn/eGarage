@@ -8,7 +8,7 @@ export const garageRouter = createRouter()
     input: createGarageSchema,
     async resolve({ ctx, input }) {
       if (!ctx.user) {
-        return new trpc.TRPCError({
+        new trpc.TRPCError({
           code: "FORBIDDEN",
           message: "You must be logged in to create a garage",
         });

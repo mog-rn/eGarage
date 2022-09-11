@@ -1,1 +1,1 @@
-SELECT * FROM LoginToken;
+SELECT * FROM garages;
