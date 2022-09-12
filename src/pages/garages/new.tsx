@@ -2,10 +2,13 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { CreateGarageInput } from "../../schema/garage.schema";
 import { trpc } from "../../utils/trpc";
+import { useUserContext } from "../../context/user.context";
 
 function createGaragePage() {
   const { handleSubmit, register } = useForm<CreateGarageInput>();
   const router = useRouter();
+
+  const user = useUserContext()
 
   const { mutate, error } = trpc.useMutation(["garages.create-garage"], {
     onSuccess: ({ id }) => {
@@ -15,6 +18,10 @@ function createGaragePage() {
 
   function onSubmit(values: CreateGarageInput) {
     mutate(values);
+  }
+
+  if(!user) {
+    router.push('/login')
   }
 
   return (
