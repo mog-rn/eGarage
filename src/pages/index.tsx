@@ -4,13 +4,14 @@ import Link from "next/link";
 import { LoginForm } from "../components";
 import { useUserContext } from "../context/user.context";
 import { trpc } from "../utils/trpc";
+import {useRouter} from "next/router";
 
 const Home: NextPage = () => {
-
+  const router = useRouter();
   const user = useUserContext()
 
   if(!user) {
-    return <LoginForm />
+   router.push("/login")
   }
 
   return (

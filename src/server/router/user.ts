@@ -77,7 +77,7 @@ export const userRouter = createRouter()
         token: encode(`${token.id}:${user.email}`),
         url: baseUrl,
         email: user?.email,
-      })
+      });
 
       return true;
     },
