@@ -32,7 +32,7 @@ function SingleGarage() {
   }
 
   return (
-    <div className="h-screen bg-[#F6FBF2] p-10 ">
+    <div className="max-h-screen bg-[#F6FBF2] p-10 ">
       <Head>
         <title>{data?.name}</title>
       </Head>
