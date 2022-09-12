@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { trpc } from "../../utils/trpc"
 
@@ -9,8 +10,9 @@ function GarageListingPage() {
             {data?.map((garage) => {
                 return (
                     <div key={garage.id}>
-                        <h2>{garage.title}</h2>
-                        <p>{garage.body}</p>
+                        <Image src={garage.image} width={200} height={200} />
+                        <h2>{garage.name}</h2>
+                        <p>{garage.description}</p>
                         <Link href={`/garages/${garage.id}`}>View Garage Details</Link>
                     </div>
                 )

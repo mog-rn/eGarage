@@ -28,8 +28,8 @@ model Garage {
   image       String
   time_open   String
   time_close  String
-  lat         Float
-  lng         Float
+  // lat         Float
+  // lng         Float
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 

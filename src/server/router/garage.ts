@@ -14,9 +14,33 @@ export const garageRouter = createRouter()
         });
       }
 
+      const {
+        name,
+        city,
+        country,
+        phone,
+        email,
+        website,
+        description,
+        services,
+        image,
+        time_close,
+        time_open,
+      } = input;
+
       const garage = await ctx.prisma.garage.create({
         data: {
-          ...input,
+          name,
+          city,
+          country,
+          phone,
+          email,
+          website,
+          description,
+          services,
+          image,
+          time_close,
+          time_open,
           user: {
             connect: {
               id: ctx.user?.id,

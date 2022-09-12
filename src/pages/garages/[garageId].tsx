@@ -23,8 +23,8 @@ function SingleGarage() {
 
   return (
     <div>
-      <h1>{data?.title}</h1>
-      <p>{data?.body}</p>
+      <h1>{data?.name}</h1>
+      <p>{data?.description}</p>
     </div>
   )
 }
