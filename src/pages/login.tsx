@@ -6,15 +6,16 @@ import { useForm } from "react-hook-form";
 import { CreateUserInput } from "../schema/user.schema";
 import { trpc } from "../utils/trpc";
 
-const LoginForm = dynamic(() => import('../components/LoginForm'), {
-    ssr: false
-})
+const LoginForm = dynamic(() => import("../components/LoginForm"), {
+  ssr: false,
+});
 
 function LoginPage() {
-    return <div>
-        <LoginForm />
+  return (
+    <div className="h-screen flex items-center justify-center bg-[#F6FBF2]">
+      <LoginForm />
     </div>
-   
+  );
 }
 
 export default LoginPage;
