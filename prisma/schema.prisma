@@ -16,25 +16,22 @@ datasource db {
 
 // TODO: garage model
 model Garage {
-  id        String   @id @default(cuid())
-  title     String
-  body      String
-  // name        String
-  // address     String
-  // city        String
-  // state       String
-  // zip         String
-  // phone       String
-  // email       String
-  // website     String
-  // description String
-  // services    String
-  // hours       String
-  // image       String
-  // lat         Float
-  // lng         Float
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  name        String
+  city        String
+  country     String
+  phone       String
+  email       String
+  website     String
+  description String
+  services    String
+  image       String
+  time_open   String
+  time_close  String
+  lat         Float
+  lng         Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   user   User   @relation(fields: [userId], references: [id])
   userId String
