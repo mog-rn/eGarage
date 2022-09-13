@@ -24,7 +24,7 @@ function NabBar() {
           </ul>
           <div>
             <button
-              onClick={() => router.push("/register")}
+              onClick={() => router.push("/auth")}
               className="px-5 py-3 bg-[#118024] rounded-xl text-white focus:border-2"
             >
               Get Started

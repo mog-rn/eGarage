@@ -33,8 +33,8 @@ model Garage {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
+  GarageOwners   GarageOwner? @relation(fields: [garageOwnersId], references: [id])
+  garageOwnersId String?
 
   @@map("garages")
 }
@@ -51,7 +51,6 @@ model User {
   // accounts      Account[]
   // sessions      Session[]
   LoginToken LoginToken[]
-  Garage     Garage[]
 
   @@map("users")
 }
@@ -62,4 +61,15 @@ model LoginToken {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   redirect  String   @default("/")
+
+  @@map("login-tokens")
+}
+
+model GarageOwner {
+  id        String   @id @default(cuid())
+  name      String
+  Garage    Garage[]
+  createdAt DateTime @default(now())
+
+  @@map("garage-owners")
 }
