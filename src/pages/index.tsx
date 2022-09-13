@@ -7,12 +7,12 @@ import { trpc } from "../utils/trpc";
 import {useRouter} from "next/router";
 
 const Home: NextPage = () => {
-  const router = useRouter();
-  const user = useUserContext()
+  // const router = useRouter();
+  // const user = useUserContext()
 
-  if(!user) {
-   router.push("/login")
-  }
+  // if(!user) {
+  //  router.push("/login")
+  // }
 
   return (
     <>
@@ -22,7 +22,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="" />
       </Head>
 
-      <Link href="garages/new">Create a garage</Link>
+      <h1>Welcome to eGarage</h1>
+      {/* <Link href="garages/new">Create a garage</Link> */}
     </>
   );
 };
