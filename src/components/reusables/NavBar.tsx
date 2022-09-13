@@ -5,7 +5,7 @@ function NabBar() {
   const router = useRouter();
 
   return (
-    <div className="bg-white">
+    <div className="bg-white sticky top-0 z-50">
       <div className="px-20 h-auto shadow-lg flex items-center justify-between p-4">
         {/* Logo */}
         <h1 className="text-[#118024]/70 text-xl font-bold">eGarage</h1>
