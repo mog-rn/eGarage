@@ -9,10 +9,12 @@ interface CtxUser {
   id: string
   email: string
   name: string
+  username: string
   image: string
   iat: string
   exp: number
 }
+
 
 function getUserFromRequest(req: NextApiRequest) {
   const token = req.cookies.token

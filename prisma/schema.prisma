@@ -56,21 +56,24 @@ model User {
 }
 
 model LoginToken {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id])
+  id        String      @id @default(cuid())
+  createdAt DateTime    @default(now())
+  user      User        @relation(fields: [userId], references: [id])
   userId    String
-  redirect  String   @default("/")
+  owner     GarageOwner @relation(fields: [ownerId], references: [id])
+  ownerId   String
+  redirect  String      @default("/")
 
   @@map("login-tokens")
 }
 
 model GarageOwner {
-  id        String   @id @default(cuid())
-  username  String
-  email     String
-  Garage    Garage[]
-  createdAt DateTime @default(now())
+  id         String       @id @default(cuid())
+  username   String
+  email      String
+  Garage     Garage[]
+  createdAt  DateTime     @default(now())
+  LoginToken LoginToken[]
 
   @@map("garage-owners")
 }

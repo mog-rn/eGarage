@@ -2,4 +2,4 @@
 
 -- SELECT * FROM garages WHERE id = 'cl7y6u0ij0029kssrxo1j8nsi';
 
-DELETE FROM garages;
+SELECT * FROM 'garage-owners';
