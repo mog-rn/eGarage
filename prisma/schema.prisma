@@ -67,7 +67,8 @@ model LoginToken {
 
 model GarageOwner {
   id        String   @id @default(cuid())
-  name      String
+  username  String
+  email     String
   Garage    Garage[]
   createdAt DateTime @default(now())
 

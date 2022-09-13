@@ -2,20 +2,34 @@ import { ArrowLeftIcon, UserCircleIcon } from "@heroicons/react/outline";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { CreateGarageOwnerInput } from "../../schema/owner.schema";
+import { trpc } from "../../utils/trpc";
 
 function RegisterAccount() {
   const router = useRouter();
+  const notify = () => toast.success("The Garage Owner has been added successfully!")
+
   const { handleSubmit, register } = useForm<CreateGarageOwnerInput>();
 
-  const onSubmit = () => {};
+    const {mutate, error} = trpc.useMutation("owners.register-owner", {
+        onError: () => {},
+        onSuccess: () => {
+            notify()
+            router.push("/owner")
+        }
+    })
+
+  const onSubmit = (values: CreateGarageOwnerInput) => {
+    mutate(values)
+  };
   return (
     <div className="h-screen bg-[#F6FBF2] flex items-center justify-center">
       <Head>
         <title>eGarage | Create Account</title>
       </Head>
       <div className="container w-auto bg-white rounded-lg flex flex-col justify-center shadow-lg p-5">
-        {/* {error && error.message} */}
+        {error && error.message}
         <form onSubmit={handleSubmit(onSubmit)} className=" ">
           <h1 className="font-bold text-center w-full">Create an account</h1>
           <p className="text-xs text-center pb-5">
