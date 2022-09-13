@@ -6,6 +6,7 @@ specifiers:
   '@heroicons/react': v1
   '@jest/globals': ^29.0.3
   '@next-auth/prisma-adapter': ^1.0.4
+  '@next/env': ^12.3.0
   '@prisma/client': ^4.3.1
   '@testing-library/jest-dom': ^4.2.4
   '@testing-library/react': ^13.4.0
@@ -75,6 +76,7 @@ devDependencies:
   '@babel/core': 7.19.0
   '@babel/preset-typescript': 7.18.6_@babel+core@7.19.0
   '@jest/globals': 29.0.3
+  '@next/env': 12.3.0
   '@testing-library/jest-dom': 4.2.4
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@types/cookie': 0.5.1
@@ -1180,6 +1182,10 @@ packages:
   /@next/env/12.2.5:
     resolution: {integrity: sha512-vLPLV3cpPGjUPT3PjgRj7e3nio9t6USkuew3JE/jMeon/9Mvp1WyR18v3iwnCuX7eUAm1HmAbJHHLAbcu/EJcw==}
     dev: false
+
+  /@next/env/12.3.0:
+    resolution: {integrity: sha512-PTJpjAFVbzBQ9xXpzMTroShvD5YDIIy46jQ7d4LrWpY+/5a8H90Tm8hE3Hvkc5RBRspVo7kvEOnqQms0A+2Q6w==}
+    dev: true
 
   /@next/eslint-plugin-next/12.2.5:
     resolution: {integrity: sha512-VBjVbmqEzGiOTBq4+wpeVXt/KgknnGB6ahvC/AxiIGnN93/RCSyXhFRI4uSfftM2Ba3w7ZO7076bfKasZsA0fw==}
