@@ -5,13 +5,20 @@ import { LoginForm } from "../components";
 import { useUserContext } from "../context/user.context";
 import { trpc } from "../utils/trpc";
 import {useRouter} from "next/router";
+import LandingPage from "../components/landing";
+import Dashboard from "./dashboard";
 
 const Home: NextPage = () => {
   const router = useRouter();
   const user = useUserContext()
 
   if(!user) {
-   router.push("/login")
+  //  router.push("/login")
+  return (
+    <div className="min-h-screen bg-[@F6FBF2]">
+      <LandingPage />
+    </div>
+  )
   }
 
   return (
@@ -22,7 +29,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="" />
       </Head>
 
-      <Link href="garages/new">Create a garage</Link>
+      <Dashboard />
     </>
   );
 };
