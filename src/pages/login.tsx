@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { CreateUserInput } from "../schema/user.schema";
 import { trpc } from "../utils/trpc";
 
-const LoginForm = dynamic(() => import("../components/LoginForm"), {
+const LoginForm = dynamic(() => import("../components/forms/LoginForm"), {
   ssr: false,
 });
 

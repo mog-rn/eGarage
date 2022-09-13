@@ -66,7 +66,7 @@ function RegisterAccount() {
         <div className="flex justify-between p-4 items-center">
           <button
             className="rounded-lg border-2 border-[#118024] px-4 py-2"
-            onClick={() => router.push("/owner")}
+            onClick={() => router.push("/owner/login")}
           >
             Login
           </button>
