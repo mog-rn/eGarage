@@ -14,7 +14,6 @@ describe('Home', () => {
     // })
 
     // expect(heading).toBeInTheDocument()
-    expect(container).toMatchSnapshot()
   })
 })
 
