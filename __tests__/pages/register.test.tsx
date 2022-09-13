@@ -1,10 +1,10 @@
-import RegisterPage from "../src/pages/register";
+import RegisterPage from "../../src/pages/register";
 import { cleanup, render, screen } from "@testing-library/react";
-import { trpc } from "../src/utils/trpc";
+import { trpc } from "../../src/utils/trpc";
 
 // import trpc from '../src/utils/trpc';
 
-jest.mock("../src/utils/trpc");
+// jest.mock("../src/utils/trpc");
 
 afterEach(cleanup);
 

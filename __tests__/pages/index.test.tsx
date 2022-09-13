@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Home from '../src/pages'
+import Home from '../../src/pages'
 import '@testing-library/jest-dom'
 import Router from "next/router";
 
