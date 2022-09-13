@@ -9,6 +9,7 @@ interface CtxUser {
   id: string
   email: string
   name: string
+  image: string
   iat: string
   exp: number
 }
