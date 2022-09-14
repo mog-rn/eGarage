@@ -4,7 +4,10 @@ import { useRouter } from "next/router";
 import { trpc } from "../../utils/trpc";
 import {
   ChartBarIcon,
+  PencilAltIcon,
+  PencilIcon,
   PlusCircleIcon,
+  TrashIcon,
   UserAddIcon,
   UserCircleIcon,
 } from "@heroicons/react/outline";
@@ -64,6 +67,7 @@ function GarageOwner() {
               <th className="border border-slate-300">Opening time</th>
               <th className="border border-slate-300">Closing time</th>
               <th className="border border-slate-300">Date Joined</th>
+              <th className="border border-slate-300">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -89,6 +93,10 @@ function GarageOwner() {
                 </th>
                 <th className="border border-slate-300 font-normal">
                   {garage?.createdAt.toLocaleString()}
+                </th>
+                <th className="border border-slate-300 font-normal p-3 flex space-x-3">
+                  <button className="rounded-lg flex items-center border bg-[#118024] px-4 py-2 text-white"><PencilAltIcon className="h-5 mr-1"/>Edit</button>
+                  <button className="rounded-lg flex items-center border bg-red-900 text-white px-4 py-2 space-x-2"><TrashIcon className="h-5 mr-1" />Delete</button>
                 </th>
               </tr>
             ))}
