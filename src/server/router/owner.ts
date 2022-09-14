@@ -12,7 +12,6 @@ import { decode, encode } from "../../utils/base64";
 import { signJwt } from "../../utils/jwt";
 import { serialize } from "cookie";
 
-
 export const ownerRouter = createRouter()
   .mutation("register-owner", {
     input: createGarageOwnerSchema,
@@ -84,44 +83,47 @@ export const ownerRouter = createRouter()
   })
   .query("verify-otp", {
     input: verifyOtpSchema,
-    async resolve({ctx, input}) {
-        const decoded = decode(input.hash).split(":")
+    async resolve({ ctx, input }) {
+      const decoded = decode(input.hash).split(":");
 
-        const [id, email] = decoded
+      const [id, email] = decoded;
 
-        const token = await ctx.prisma.ownerToken.findFirst({
-            where: {
-                id,
-                owner: {
-                    email
-                }
-            },
-            include: {
-                owner: true
-            }
-        })
+      const token = await ctx.prisma.ownerToken.findFirst({
+        where: {
+          id,
+          owner: {
+            email,
+          },
+        },
+        include: {
+          owner: true,
+        },
+      });
 
-        if (!token) {
-            throw new trpc.TRPCError({
-              code: "FORBIDDEN",
-              message: "Invalid token",
-            });
-          }
-    
-          const jwt = signJwt({
-            email: token.owner.email,
-            id: token.owner.id,
-          });
-    
-          ctx.res.setHeader("Set-Cookie", serialize("token", jwt, { path: "/" }));
-    
-          return {
-            redirect: token.redirect,
-          };
-    }
+      if (!token) {
+        throw new trpc.TRPCError({
+          code: "FORBIDDEN",
+          message: "Invalid token",
+        });
+      }
+
+      const jwt = signJwt({
+        email: token.owner.email,
+        id: token.owner.id,
+      });
+
+      ctx.res.setHeader(
+        "Set-Cookie",
+        serialize("token", jwt, { path: "/", httpOnly: true, maxAge: 60 * 5 })
+      );
+
+      return {
+        redirect: token.redirect,
+      };
+    },
   })
   .query("me", {
-    async resolve({ctx}) {
-    return ctx.owner
-    }
-})
+    async resolve({ ctx }) {
+      return ctx.owner;
+    },
+  });

@@ -1,4 +1,4 @@
-import Dashboard from "../../src/pages/dashboard";
+import Dashboard from "../../src/pages/users/dashboard";
 
 describe("Dashboard", () => {
     it('Displays the dashboard page', () => {

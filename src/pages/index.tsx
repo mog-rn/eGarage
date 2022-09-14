@@ -6,7 +6,7 @@ import { useUserContext } from "../context/user.context";
 import { trpc } from "../utils/trpc";
 import { useRouter } from "next/router";
 import LandingPage from "../components/landing";
-import Dashboard from "./dashboard";
+import Dashboard from "./users/dashboard";
 
 const Home: NextPage = () => {
   const router = useRouter();

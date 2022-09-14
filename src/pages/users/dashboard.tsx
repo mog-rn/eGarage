@@ -1,5 +1,5 @@
-import Sidebar from "../components/reusables/Sidebar";
-import {useUserContext} from "../context/user.context";
+import Sidebar from "../../components/reusables/Sidebar";
+import {useUserContext} from "../../context/user.context";
 
 function Dashboard() {
     const user = useUserContext();

@@ -2,8 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import { CreateUserInput } from "../schema/user.schema";
-import { trpc } from "../utils/trpc";
+import { CreateUserInput } from "../../schema/user.schema";
+import { trpc } from "../../utils/trpc";
 import "react-toastify/dist/ReactToastify.css";
 
 function RegisterPage() {

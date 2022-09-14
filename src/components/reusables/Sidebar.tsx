@@ -13,9 +13,10 @@ function Sidebar() {
         <div className="flex flex-col items-center w-full">
           <div className="border-2 h-20 w-20 rounded-full relative border-[#F6FBF2]">
             <Image
-              src="https://rebrand.ly/7lugwo6"
+              src="https://rebrand.ly/dy5sp0e"
               className="rounded-full"
               layout="fill"
+              objectFit="cover"
             />
           </div>
           <div className="text-xs text-center font-semibold w-32">

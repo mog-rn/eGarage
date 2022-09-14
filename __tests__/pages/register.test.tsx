@@ -1,4 +1,4 @@
-import RegisterPage from "../../src/pages/register";
+import RegisterPage from "../../src/pages/users/register";
 import { cleanup, render, screen } from "@testing-library/react";
 import { trpc } from "../../src/utils/trpc";
 

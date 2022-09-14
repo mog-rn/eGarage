@@ -26,13 +26,20 @@ function GarageOwner() {
   });
 
   const { data: garages } = trpc.useQuery(["garages.garages"], {});
+
+  const deleteCookie = () => {}
   return (
     <div className="h-screen bg-[#F6FBF2]">
       <div className="mx-20 p-5">
         <div className="container bg-white h-auto p-3 rounded-lg shadow-md flex items-center justify-between">
           <h1 className="text-[#118024]/70 text-xl font-bold px-2">eGarage</h1>
 
-          <div className="flex space-x-2 items-center rounded-full border p-2">
+          <div
+          onClick={() => {
+              deleteCookie()
+              router.push("/owner/login")
+          }}
+          className="flex space-x-2 items-center rounded-full cursor-pointer border p-2">
             <UserCircleIcon className="h-6 text-[#118024]/70" />
             <span className="text-sm font-light">{data?.email}</span>
           </div>
