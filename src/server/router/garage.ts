@@ -41,11 +41,11 @@ export const garageRouter = createRouter()
           image,
           time_close,
           time_open,
-          user: {
+          GarageOwners: {
             connect: {
               id: ctx.user?.id,
-            },
-          },
+            }
+          }
         },
       });
 
