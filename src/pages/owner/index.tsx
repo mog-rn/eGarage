@@ -2,7 +2,12 @@ import { useUserContext } from "../../context/user.context";
 
 import { useRouter } from "next/router";
 import { trpc } from "../../utils/trpc";
-import { UserCircleIcon } from "@heroicons/react/outline";
+import {
+  ChartBarIcon,
+  PlusCircleIcon,
+  UserAddIcon,
+  UserCircleIcon,
+} from "@heroicons/react/outline";
 
 function GarageOwner() {
   const user = useUserContext();
@@ -17,13 +22,11 @@ function GarageOwner() {
     onSuccess: () => {},
   });
 
-  const {data: garage} = trpc.useQuery(["garages.garages"], {
-
-  })
+  const { data: garages } = trpc.useQuery(["garages.garages"], {});
   return (
     <div className="h-screen bg-[#F6FBF2]">
       <div className="mx-20 p-5">
-        <div className="container bg-white h-auto p-3 rounded-lg shadow-md mx-5 flex items-center justify-between">
+        <div className="container bg-white h-auto p-3 rounded-lg shadow-md flex items-center justify-between">
           <h1 className="text-[#118024]/70 text-xl font-bold px-2">eGarage</h1>
 
           <div className="flex space-x-2 items-center rounded-full border p-2">
@@ -32,7 +35,65 @@ function GarageOwner() {
           </div>
         </div>
 
-        <h1 className="p-5 font-bold text-xl">My Garages</h1>
+        <div className="p-6 flex w-full justify-between">
+          <h1 className="font-bold text-xl">My Garages</h1>
+          <div className="flex space-x-5">
+            <button
+              className="flex space-x-1 border-[#118024]/50 rounded-lg border p-2"
+              onClick={() => router.push("/garages/new")}
+            >
+              <PlusCircleIcon className="h-6 text-[#118024]/70" />
+              <span>Add a Garage</span>
+            </button>
+            <button
+              className="flex space-x-1 border-[#118024]/50 rounded-lg border p-2"
+              onClick={() => router.push("/garages/")}
+            >
+              <ChartBarIcon className="h-6 text-[#118024]/70" />
+              <span>View all garages</span>
+            </button>
+          </div>
+        </div>
+        <table className="table-auto border w-full border-collapse">
+          <thead>
+            <tr className="">
+              <th className="border border-slate-300">Name</th>
+              <th className="border border-slate-300">Location</th>
+              <th className="border border-slate-300">Services</th>
+              <th className="border border-slate-300">phone</th>
+              <th className="border border-slate-300">Opening time</th>
+              <th className="border border-slate-300">Closing time</th>
+              <th className="border border-slate-300">Date Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            {garages?.map((garage) => (
+              <tr key={garage?.id}>
+                <th className="border border-slate-300 font-normal">
+                  {garage?.name}
+                </th>
+                <th className="border border-slate-300 font-normal">
+                  {garage?.city}
+                </th>
+                <th className="border border-slate-300 font-normal">
+                  {garage?.services}
+                </th>
+                <th className="border border-slate-300 font-normal">
+                  {garage?.phone}
+                </th>
+                <th className="border border-slate-300 font-normal">
+                  {garage?.time_open}
+                </th>
+                <th className="border border-slate-300 font-normal">
+                  {garage?.time_close}
+                </th>
+                <th className="border border-slate-300 font-normal">
+                  {garage?.createdAt.toLocaleString()}
+                </th>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
