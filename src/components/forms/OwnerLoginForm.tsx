@@ -5,29 +5,36 @@ import { useForm } from "react-hook-form";
 import { CreateGarageOwnerInput } from "../../schema/owner.schema";
 import { trpc } from "../../utils/trpc";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function VerifyToken({ hash }: { hash: string }) {
-    const router = useRouter();
-  
-    const { data, isLoading } = trpc.useQuery([
-      "owners.verify-otp",
-      {
-        hash,
-      },
-    ]);
-  
-    if (isLoading) {
-      return <p>Verifying...</p>;
-    }
-  
-    router.push(data?.redirect.includes("login") ? "/garages/new" : data?.redirect || "/owner");
-  
-    return <p>Redirecting...</p>;
+  const router = useRouter();
+
+  const { data, isLoading } = trpc.useQuery([
+    "owners.verify-otp",
+    {
+      hash,
+    },
+  ]);
+
+  if (isLoading) {
+    return <p>Verifying...</p>;
   }
-  
+
+  router.push(
+    data?.redirect.includes("login")
+      ? "/garages/new"
+      : data?.redirect || "/owner"
+  );
+
+  return <p>Redirecting...</p>;
+}
 
 function GarageOwnerLoginForm() {
   const router = useRouter();
+
+  const notify = () => toast.success("Check your email for the OTP");
 
   const [success, setSuccess] = useState(false);
 
@@ -43,8 +50,26 @@ function GarageOwnerLoginForm() {
   function onSubmit(values: CreateGarageOwnerInput) {
     mutate({ ...values, redirect: router.asPath });
   }
+
+  const hash = router.asPath.split("#token=")[1];
+
+  if (hash) {
+    return <VerifyToken hash={hash} />;
+  }
+  
   return (
     <div className="h-screen bg-[#F6FBF2] flex items-center justify-center">
+      <ToastContainer
+        position="top-center"
+        autoClose={20000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Head>
         <title>eGarage | Owner</title>
       </Head>
@@ -66,7 +91,7 @@ function GarageOwnerLoginForm() {
             <input
               type="text"
               placeholder="john.doe@gmail.com"
-              {...register('email')}
+              {...register("email")}
               className="border border-[#118024]/50 w-96 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#118024] focus:border-transparent"
             />
             <div className="flex justify-around w-full space-x-5">

@@ -11,12 +11,14 @@ function AuthCheck() {
         <h1 className="font-bold">Auth Check</h1>
         <p>How do you want to login today?</p>
         <div className="flex justify-around w-full pt-6 space">
-          <button className="border-2 border-transparent bg-[#118024] px-5 py-3 text-white rounded-lg">
+          <button 
+          onClick={() => router.push("/login")}
+          className="border-2 border-transparent bg-[#118024] px-5 py-3 text-white rounded-lg">
             Normal user
           </button>
           <button
             className="border-2 border-[#118024]/90 bg-[#F6FBF2] px-5 py-3 text-black rounded-lg"
-            onClick={() => router.push("/owner")}
+            onClick={() => router.push("/owner/login")}
           >
             Garage owner
           </button>

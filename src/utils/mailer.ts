@@ -21,13 +21,6 @@ export async function sendLoginEmail({
     },
   })
 
-  const info = await transporter.sendMail({
-    from: '"Jane Doe" <j.doe@example.com>',
-    to: email,
-    subject: 'Login to your account',
-    html: `Login by clicking <a href="${url}/login#token=${token}">HERE</a>`,
-  })
-
   transporter.verify(function (error, success) {
     if (error) {
       console.log(error);
@@ -35,6 +28,15 @@ export async function sendLoginEmail({
       console.log("Server is ready to take our messages");
     }
   });
+
+  const info = await transporter.sendMail({
+    from: '"Jane Doe" <j.doe@example.com>',
+    to: email,
+    subject: 'Login to your account',
+    html: `Login by clicking <a href="${url}/owner/login#token=${token}">HERE</a>`,
+  })
+
+  
 
   console.log(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`)
 }
