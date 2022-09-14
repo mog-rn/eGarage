@@ -3,6 +3,7 @@ import * as trpc from "@trpc/server";
 import {
   createGarageOwnerSchema,
   requestOtpSchema,
+  verifyOtpSchema,
 } from "./../../schema/owner.schema";
 import { createRouter } from "./context";
 import { sendLoginEmail } from "../../utils/mailer";
@@ -61,7 +62,7 @@ export const ownerRouter = createRouter()
         });
       }
 
-      const token = await ctx.prisma.loginToken.create({
+      const token = await ctx.prisma.ownerToken.create({
         data: {
           redirect,
           owner: {
@@ -80,4 +81,47 @@ export const ownerRouter = createRouter()
 
       return true;
     },
-  });
+  })
+  .query("verify-otp", {
+    input: verifyOtpSchema,
+    async resolve({ctx, input}) {
+        const decoded = decode(input.hash).split(":")
+
+        const [id, email] = decoded
+
+        const token = await ctx.prisma.ownerToken.findFirst({
+            where: {
+                id,
+                owner: {
+                    email
+                }
+            },
+            include: {
+                owner: true
+            }
+        })
+
+        if (!token) {
+            throw new trpc.TRPCError({
+              code: "FORBIDDEN",
+              message: "Invalid token",
+            });
+          }
+    
+          const jwt = signJwt({
+            email: token.owner.email,
+            id: token.owner.id,
+          });
+    
+          ctx.res.setHeader("Set-Cookie", serialize("token", jwt, { path: "/" }));
+    
+          return {
+            redirect: token.redirect,
+          };
+    }
+  })
+  .query("me", {
+    async resolve({ctx}) {
+    return ctx.owner
+    }
+})

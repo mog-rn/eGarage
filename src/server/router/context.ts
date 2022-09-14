@@ -15,6 +15,13 @@ interface CtxUser {
   exp: number
 }
 
+interface CtxOwner {
+  id: string
+  email: string
+  username: string
+  iat: string
+  exp: string
+}
 
 function getUserFromRequest(req: NextApiRequest) {
   const token = req.cookies.token
@@ -22,6 +29,20 @@ function getUserFromRequest(req: NextApiRequest) {
   if (token) {
     try {
       const verified = verifyJwt<CtxUser>(token)
+      return verified
+    } catch (e) {
+      return null
+    }
+  }
+
+  return null
+}
+
+function getOwnerFromRequest(req: NextApiRequest) {
+  const token = req.cookies.token
+  if (token) {
+    try {
+      const verified = verifyJwt<CtxOwner>(token)
       return verified
     } catch (e) {
       return null
@@ -40,7 +61,9 @@ export function createContext({
 }) {
   const user = getUserFromRequest(req)
 
-  return { req, res, prisma, user }
+  const owner = getOwnerFromRequest(req)
+
+  return { req, res, prisma, user, owner }
 }
 
 export function createRouter() {
